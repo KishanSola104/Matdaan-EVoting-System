@@ -1,0 +1,34 @@
+﻿Matdaan/
+│
+├── backend/                       # Pure Node backend
+│   ├── db/                        # MySQL DB connection & queries
+│   │   └── connection.js
+│   ├── controllers/               # Request handling logic
+│   │   ├── adminController.js
+│   │   └── voterController.js
+│   ├── routes/                    # Manual route mapping (based on URL/method)
+│   │   ├── adminRoutes.js
+│   │   └── voterRoutes.js
+│   ├── utils/                     # Utilities like validation, hashing, etc.
+│   │   └── helpers.js
+│   └── server.js                  # Entry point (HTTP server)
+│
+├── public/                        # Frontend files (served by backend)
+│   ├── css/
+│   ├── js/
+│   ├── images/
+│   ├── admin/                     # Admin UI Pages
+│   │   ├── dashboard.html
+│   │   ├── add-election.html
+│   │   ├── manage-candidates.html
+│   │   ├── results.html
+│   │   └── etc.
+│   ├── voter/                     # Voter UI Pages
+│   │   ├── register.html
+│   │   ├── login.html
+│   │   ├── vote.html
+│   │   ├── view-result.html
+│   │   └── etc.
+│   └── index.html                 # Landing Page (home)
+│
+└── README.md
