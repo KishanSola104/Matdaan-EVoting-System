@@ -32,3 +32,23 @@
 │   └── index.html                 # Landing Page (home)
 │
 └── README.md
+
+
+
+
+// Css File Structures 
+
+/public/css/
+├── base.css             ← Reset, default fonts, tags
+├── layout.css           ← Page structure, header/footer
+├── components.css       ← Buttons, forms, cards, badges
+├── animations.css       ← Keyframes, transitions
+├── theme.css            ← Colors, shadows, fonts
+├── pages/
+│   ├── index.css         ← Landing-specific styles
+│   ├── admin.css         ← Admin panel
+│   └── voter.css         ← Voter pages
+├── responsive/
+│   ├── mobile.css        ← max-width: 600px
+│   ├── tablet.css        ← 601px – 1024px
+│   └── desktop.css       ← 1025px+
