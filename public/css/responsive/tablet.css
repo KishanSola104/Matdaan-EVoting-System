@@ -1,0 +1,27 @@
+/* =======================
+   Index.html
+   769px - 1024px
+======================= */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .hero-section::after {
+    display: none;
+  }
+
+  .site-title {
+    font-size: 3rem;
+  }
+
+  .tagline {
+    font-size: 1.3rem;
+  }
+
+  .buttons-container {
+    gap: 0.5rem;
+  }
+}

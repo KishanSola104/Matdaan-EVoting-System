@@ -1,0 +1,7 @@
+/* index.html */
+
+@media (min-width: 1025px) {
+  .hero-section {
+    padding: 0 10%;
+  }
+}
