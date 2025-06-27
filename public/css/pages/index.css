@@ -73,7 +73,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #222; /* dark color for contrast on whiteish background */
+  color: #222; 
   animation: fadeIn 2s ease forwards;
 }
 
@@ -97,7 +97,7 @@ header {
   animation-delay: 1.2s;
 }
 
-/* Right half placeholder (optional for layout symmetry) */
+/* Right half placeholder  */
 .hero-section::after {
   content: '';
   flex: 1;
