@@ -5,3 +5,30 @@
     padding: 0 10%;
   }
 }
+
+
+/* login.html  page  */
+
+/* DESKTOP ≥ 1200px */
+
+@media (min-width: 1200px) {
+  .login-form {
+    height: 80vh;
+  }
+
+  .left-box h1.site-title {
+    font-size: 4.5rem;
+  }
+
+  .left-box .tagline {
+    font-size: 1.5rem;
+  }
+
+  .right-box {
+    padding: 3rem;
+  }
+
+  .login-container {
+    max-width: 400px;
+  }
+}

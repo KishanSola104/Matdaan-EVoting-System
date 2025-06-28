@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matdaan - Voter Login</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/public/css/pages/login.css" />
+    <link rel="stylesheet" href="/public/css/responsive/desktop.css" />
+    <link rel="stylesheet" href="/public/css/responsive/tablet.css" />
+    <link rel="stylesheet" href="/public/css/responsive/mobile.css" />
+
+    <!-- Page JS -->
+    <script src="/public/js/login.js" defer></script>
+</head>
+
+<body>
+    <main class="login-wrapper" role="main">
+        <form action="#" method="post" class="login-form">
+            <!-- Left Section -->
+            <div class="left-box">
+                <h1 class="site-title">
+                    <span class="orange">M</span>
+                    <span class="whiteblue">a</span>
+                    <span class="green">t</span>
+                    <span class="orange">d</span>
+                    <span class="whiteblue">a</span>
+                    <span class="green">a</span>
+                    <span class="orange">n</span>
+                </h1>
+                <span style="color: black;">Unity in diversity is the true essence of India!</span>
+            </div>
+
+
+            <!-- Right Section -->
+            <div class="right-box">
+                <div class="login-container">
+                    <h2>Login</h2>
+                    <div class="form-group">
+                        <input type="text" id="voterId" name="voterId" placeholder="Enter your Voter ID"
+                            autocomplete="off" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="otp" name="otp" placeholder="Enter OTP" autocomplete="one-time-code"
+                            required />
+                    </div>
+                    <button type="submit" class="login-btn">Login</button>
+                    <div class="links">
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                        <span>or</span>
+                        <a href="/voter/register.html" class="signup-link">Create New Account</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>

@@ -25,3 +25,41 @@
     gap: 0.5rem;
   }
 }
+
+
+/* login.html page  */
+
+/* TABLET 768px – 1199px */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .login-form {
+    flex-direction: column;
+    height: auto;
+    margin: 2rem auto;
+  }
+
+  .left-box {
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .left-box h1.site-title {
+    font-size: 3rem;
+  }
+
+  .left-box .tagline {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  .right-box {
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .login-container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
