@@ -32,3 +32,26 @@
     max-width: 400px;
   }
 }
+
+
+/*  Admin Dashboard Responsiveness */
+.sidebar-toggle {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .admin-sidebar {
+    position: fixed;
+    left: -180px; 
+    top: 60px; 
+    width: 180px;
+    height: calc(100% - 60px);
+    background-color: #00509e;
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
+
+  .admin-sidebar.active {
+    left: 0;
+  }
+}

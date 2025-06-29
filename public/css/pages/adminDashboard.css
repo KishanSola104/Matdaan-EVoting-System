@@ -1,0 +1,165 @@
+/* ============================
+    BASE RESET & BODY
+============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+/* ============================
+    DASHBOARD WRAPPER
+============================ */
+.dashboard-wrapper {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 180px 1fr;     
+  grid-template-rows: 60px 1fr 30px;    
+  min-height: 100vh;
+}
+
+/* ============================
+    HEADER
+============================ */
+.admin-header {
+  grid-area: header;
+  background-color: #ff6f00; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  color: #fff;
+  height: 60px;
+}
+
+.admin-header .left-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+.admin-header h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.admin-header .right-section {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.admin-header button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.admin-header button:hover {
+  color: #ffe6b3;
+}
+
+.admin-header .admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-header .admin-profile img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+.admin-header .admin-profile .admin-name {
+  font-weight: 600;
+}
+
+/* ============================
+    SIDEBAR
+============================ */
+.admin-sidebar {
+  grid-area: sidebar;
+  background-color: #00509e; 
+  padding: 2rem 0.8rem;
+}
+
+.admin-sidebar nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.admin-sidebar nav li a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.3s, color 0.3s;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+}
+
+.admin-sidebar nav li a i {
+  font-size: 1.1rem;
+}
+
+.admin-sidebar nav li a:hover {
+  background-color: #003f7d;
+  color: #ffcc80;
+}
+
+/* ============================
+    MAIN CONTENT
+============================ */
+.dashboard-content {
+  grid-area: main;
+  background-color: #fff;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.empty-state p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* ============================
+    FOOTER
+============================ */
+.admin-footer {
+  grid-area: footer;
+  background-color: #388e3c; 
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+  height: 30px;     
+}

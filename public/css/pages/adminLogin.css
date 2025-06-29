@@ -1,0 +1,182 @@
+/* ===============  
+   Base Reset
+=============== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+/* ===============  
+   Background
+=============== */
+.admin-login-wrapper {
+  position: relative;
+  min-height: 100vh;
+  background-image: url('/public/images/IndianFlag.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.admin-login-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  z-index: 0;
+}
+
+.admin-login-wrapper > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===============  
+   Back Link
+=============== */
+.back-link {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #ffcc00;
+}
+
+/* ===============  
+   Title Styles
+=============== */
+.site-title {
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 0.2rem;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+}
+
+.site-title span {
+  display: inline-block;
+  transform: translateY(-10px);
+  opacity: 0;
+  animation: titleFadeIn 0.5s forwards;
+}
+
+.site-title span:nth-child(1) { animation-delay: 0.2s; }
+.site-title span:nth-child(2) { animation-delay: 0.4s; }
+.site-title span:nth-child(3) { animation-delay: 0.6s; }
+.site-title span:nth-child(4) { animation-delay: 0.8s; }
+.site-title span:nth-child(5) { animation-delay: 1.0s; }
+.site-title span:nth-child(6) { animation-delay: 1.2s; }
+.site-title span:nth-child(7) { animation-delay: 1.4s; }
+
+@keyframes titleFadeIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.orange {
+  color: #ff6f00;
+}
+
+.whiteblue {
+  background: linear-gradient(45deg, #ffffff, #00bcd4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.green {
+  color: #388e3c;
+}
+
+/* ===============  
+   Login Box
+=============== */
+.login-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  padding: 3rem 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.login-box h2 {
+  color: #fff;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  transition: background 0.3s;
+}
+
+.form-group input::placeholder {
+  color: #555;
+}
+
+.form-group input:focus {
+  outline: none;
+  background: #fff;
+}
+
+button {
+  width: 100%;
+  padding: 0.9rem;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.forgot-link {
+  display: inline-block;
+  margin-top: 1.2rem;
+  color: #fff;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}

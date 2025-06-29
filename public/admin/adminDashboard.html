@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matdaan Admin Dashboard</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/public/css/pages/adminDashboard.css" />
+    <link rel="stylesheet" href="/public/css/responsive/desktop.css" />
+    <link rel="stylesheet" href="/public/css/responsive/tablet.css" />
+    <link rel="stylesheet" href="/public/css/responsive/mobile.css" />
+    <link rel="stylesheet" href="/public/css/utils/toggle.css">
+
+    <!-- Icons Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- JS -->
+    <script src="/public/js/admin/adminDashboard.js" defer></script>
+    <script src="/public/js/utils/toggle.js" defer></script>
+</head>
+
+<body>
+    <!-- Wrapper for whole dashboard -->
+    <div class="dashboard-wrapper">
+
+        <!-- HEADER -->
+        <header class="admin-header">
+            <div class="left-section">
+                <button class="sidebar-toggle">&#9776;</button>
+                <h1>Admin Dashboard</h1>
+            </div>
+            <div class="right-section">
+                <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                    <i class="fa-regular fa-moon"></i>
+                </button>
+                <button id="email-notifications" aria-label="Email Notifications">
+                    <i class="fa-regular fa-envelope"></i>
+                </button>
+                <div class="admin-profile">
+                    <img src="/public/images/default-admin.png" alt="Admin Profile Photo" />
+                    <span class="admin-name">admin</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- SIDEBAR -->
+        <aside class="admin-sidebar">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>Elections</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-landmark-flag"></i>
+                            <span>Parties</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-users-rectangle"></i>
+                            <span>Candidates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-user-check"></i>
+                            <span>Voters</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            <span>Results</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="dashboard-content">
+            <div class="empty-state">
+                <p>Welcome to the Matdaan Admin Dashboard. Select an option from the sidebar to get started.</p>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="admin-footer">
+            <p>All Rights Reserved @Matdaan Gov. of IND</p>
+        </footer>
+
+    </div>
+</body>
+
+</html>

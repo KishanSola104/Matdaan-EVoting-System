@@ -36,7 +36,6 @@
   }
 }
 
-
 /* login.html page  */
 
 /* MOBILE ≤ 767px */
@@ -102,3 +101,57 @@
   }
 }
 
+/* Admin Dashboard Togle  */
+@media (max-width: 1024px) {
+  .sidebar-toggle {
+    display: inline-flex;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboard-wrapper {
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 1fr 30px;
+  }
+}
+
+.admin-sidebar {
+  left: -180px;
+}
+
+.admin-sidebar.active {
+  left: 0;
+}
+
+/* Header of The Admin dashboard  */
+@media (max-width: 768px) {
+  .admin-header {
+    height: 60px;
+    padding: 0 0.8rem;
+  }
+
+  .admin-header h1 {
+    font-size: 1rem;
+  }
+
+  .admin-header .admin-profile img {
+    width: 26px;
+    height: 26px;
+  }
+
+  .admin-header .admin-profile .admin-name {
+    display: none;
+  }
+}
