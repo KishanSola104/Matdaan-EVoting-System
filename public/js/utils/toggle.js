@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Close sidebar on link click
-  links.forEach(link => {
+  links.forEach((link) => {
     link.addEventListener("click", () => {
       sidebar.classList.remove("active");
     });
