@@ -1,0 +1,55 @@
+body.dark-mode {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark-mode .admin-header {
+  background-color: #333;
+}
+
+body.dark-mode .admin-sidebar  {
+  background-color: #1f1f1f;
+}
+
+body.dark-mode .dashboard-content {
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+
+body.dark-mode .admin-footer {
+  background-color: #222;
+}
+
+body.dark-mode .admin-sidebar nav li a {
+  color: #ddd;
+}
+
+body.dark-mode .admin-sidebar nav li a:hover  {
+  background-color: #333;
+  color: #ffcc80;
+}
+
+
+.admin-header,
+.admin-sidebar,
+.dashboard-content,
+.admin-footer {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .admin-sidebar {
+  background-color: #1f1f1f;
+}
+
+body.dark-mode .admin-dropdown {
+  background-color: #1f1f1f;
+}
+
+body.dark-mode .admin-dropdown a {
+  color: #ddd;
+}
+
+body.dark-mode .admin-dropdown a:hover {
+  background-color: #333;
+  color: #ffcc80;
+}

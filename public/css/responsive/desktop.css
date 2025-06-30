@@ -6,7 +6,6 @@
   }
 }
 
-
 /* login.html  page  */
 
 /* DESKTOP ≥ 1200px */
@@ -33,7 +32,6 @@
   }
 }
 
-
 /*  Admin Dashboard Responsiveness */
 .sidebar-toggle {
   display: none;
@@ -42,8 +40,8 @@
 @media (max-width: 1024px) {
   .admin-sidebar {
     position: fixed;
-    left: -180px; 
-    top: 60px; 
+    left: -180px;
+    top: 60px;
     width: 180px;
     height: calc(100% - 60px);
     background-color: #00509e;

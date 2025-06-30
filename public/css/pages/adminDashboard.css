@@ -7,9 +7,10 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background-color: #f5f7fa;
   color: #333;
 }
@@ -23,8 +24,8 @@ html, body {
     "header header"
     "sidebar main"
     "footer footer";
-  grid-template-columns: 180px 1fr;     
-  grid-template-rows: 60px 1fr 30px;    
+  grid-template-columns: 180px 1fr;
+  grid-template-rows: 60px 1fr 30px;
   min-height: 100vh;
 }
 
@@ -33,13 +34,16 @@ html, body {
 ============================ */
 .admin-header {
   grid-area: header;
-  background-color: #ff6f00; 
+  background-color: #ff6f00;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1.5rem;
   color: #fff;
   height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .admin-header .left-section {
@@ -47,7 +51,6 @@ html, body {
   align-items: center;
   gap: 1rem;
 }
-
 
 .admin-header h1 {
   font-size: 1.5rem;
@@ -90,12 +93,51 @@ html, body {
   font-weight: 600;
 }
 
+.admin-name ,.admin-profile a{
+  text-decoration: none;
+  color: #f5f7fa;
+}
+
+.admin-profile {
+  position: relative;
+}
+
+.admin-dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background-color: #00509e;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin-dropdown a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+}
+
+.admin-dropdown a:hover {
+  background-color: #003f7d;
+  color: #ffcc80;
+}
+
+.admin-profile.show-dropdown .admin-dropdown {
+  display: flex;
+}
+
+
 /* ============================
     SIDEBAR
 ============================ */
 .admin-sidebar {
   grid-area: sidebar;
-  background-color: #00509e; 
+  background-color: #00509e;
   padding: 2rem 0.8rem;
 }
 
@@ -135,6 +177,7 @@ html, body {
   background-color: #fff;
   padding: 2rem;
   overflow-y: auto;
+   min-height: calc(100vh - 60px - 35px);
 }
 
 .empty-state {
@@ -155,11 +198,11 @@ html, body {
 ============================ */
 .admin-footer {
   grid-area: footer;
-  background-color: #388e3c; 
+  background-color: #388e3c;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 0.85rem;
-  height: 30px;     
+  height: 35px;
 }

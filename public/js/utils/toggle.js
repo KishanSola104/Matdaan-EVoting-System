@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const sidebar = document.querySelector(".admin-sidebar");
   const toggleBtn = document.querySelector(".sidebar-toggle");
   const links = document.querySelectorAll(".admin-sidebar nav a");
+  
 
   if (toggleBtn) {
     toggleBtn.addEventListener("click", function (e) {
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       sidebar.classList.remove("active");
     });
   });
+
 
   // Close sidebar on outside click
   document.body.addEventListener("click", function (e) {
