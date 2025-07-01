@@ -86,14 +86,14 @@ body {
   height: 35px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #fff;
 }
 
 .admin-header .admin-profile .admin-name {
   font-weight: 600;
 }
 
-.admin-name ,.admin-profile a{
+.admin-name,
+.admin-profile a {
   text-decoration: none;
   color: #f5f7fa;
 }
@@ -130,7 +130,6 @@ body {
 .admin-profile.show-dropdown .admin-dropdown {
   display: flex;
 }
-
 
 /* ============================
     SIDEBAR
@@ -169,6 +168,15 @@ body {
   color: #ffcc80;
 }
 
+.admin-sidebar nav li a.active {
+  background-color: #003f7d;
+  color: #ffcc80;
+}
+
+.admin-dropdown a.active {
+  background-color: #003f7d;
+  color: #ffcc80;
+}
 /* ============================
     MAIN CONTENT
 ============================ */
@@ -177,7 +185,7 @@ body {
   background-color: #fff;
   padding: 2rem;
   overflow-y: auto;
-   min-height: calc(100vh - 60px - 35px);
+  min-height: calc(100vh - 60px - 35px);
 }
 
 .empty-state {
