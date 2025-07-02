@@ -1,0 +1,104 @@
+body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f9f9f9;
+    }
+
+    .dashboard-content {
+      padding: 2rem;
+    }
+
+    .dashboard-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding: 1rem;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card i {
+      font-size: 2.5rem;
+      color: #ff6f00;
+      margin-bottom: 0.8rem;
+    }
+
+    .card h2 {
+      font-size: 2rem;
+      margin: 0.5rem 0;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* Overlay styles */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 1rem;
+    }
+
+    .overlay.active {
+      display: flex;
+    }
+
+    .overlay-content {
+      background: #fff;
+      color: #333;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 0 10px #000;
+      border: 4px solid #ff6f00;
+    }
+
+    .overlay-content h3 {
+      margin-top: 0;
+      color: #ff6f00;
+    }
+
+    .overlay-content p {
+      line-height: 1.5;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #999;
+      transition: color 0.2s;
+    }
+
+    .close-btn:hover {
+      color: #ff6f00;
+    }

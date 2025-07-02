@@ -15,17 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
         loadContent(url);
       }
 
-      // Remove active from ALL links (sidebar + dropdown)
       document.querySelectorAll(".admin-sidebar nav a, .admin-dropdown a").forEach((l) => {
         l.classList.remove("active");
       });
 
       this.classList.add("active");
 
-      // Close sidebar on small screens
       document.querySelector(".admin-sidebar").classList.remove("active");
-
-      // Close dropdowns
       document.querySelectorAll(".admin-dropdown").forEach((drop) => {
         drop.classList.remove("active");
       });
@@ -39,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Define loadContent outside listener
 function loadContent(url) {
   fetch(url)
     .then((response) => {
@@ -50,12 +45,27 @@ function loadContent(url) {
     })
     .then((html) => {
       document.getElementById("main-content").innerHTML = html;
+
+      if (url.includes("adminDashboardMain.html")) {
+        loadScript("/public/js/admin/adminDashboardMain.js", () => {
+          if (window.initAdminDashboardMain) {
+            window.initAdminDashboardMain();
+          }
+        });
+      }
     })
     .catch((err) => {
       document.getElementById("main-content").innerHTML =
         "<p>Error loading page.</p>";
       console.error(err);
     });
+}
+
+function loadScript(src, callback) {
+  const script = document.createElement("script");
+  script.src = src;
+  script.onload = callback;
+  document.body.appendChild(script);
 }
 
 document.getElementById("logout-link").addEventListener("click", function (e) {
