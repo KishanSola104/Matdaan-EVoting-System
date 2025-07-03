@@ -1,35 +1,39 @@
 console.log("Hello Admin Dashboard");
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Load default dashboard content on first load
   loadContent("/public/admin/adminDashboardMain.html");
 
-  // Find all sidebar and dropdown links together
-  document.querySelectorAll(".admin-sidebar nav a, .admin-dropdown a").forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
+  document
+    .querySelectorAll(".admin-sidebar nav a, .admin-dropdown a")
+    .forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
 
-      const url = this.getAttribute("href");
+        const url = this.getAttribute("href");
 
-      if (url && url !== "#") {
-        loadContent(url);
-      }
+        if (url && url !== "#") {
+          loadContent(url);
+        }
 
-      document.querySelectorAll(".admin-sidebar nav a, .admin-dropdown a").forEach((l) => {
-        l.classList.remove("active");
-      });
+        document
+          .querySelectorAll(".admin-sidebar nav a, .admin-dropdown a")
+          .forEach((l) => {
+            l.classList.remove("active");
+          });
 
-      this.classList.add("active");
+        this.classList.add("active");
 
-      document.querySelector(".admin-sidebar").classList.remove("active");
-      document.querySelectorAll(".admin-dropdown").forEach((drop) => {
-        drop.classList.remove("active");
+        document.querySelector(".admin-sidebar").classList.remove("active");
+        document.querySelectorAll(".admin-dropdown").forEach((drop) => {
+          drop.classList.remove("active");
+        });
       });
     });
-  });
 
-  // Optionally set default active link on load:
-  const defaultLink = document.querySelector('.admin-sidebar nav a[href="/public/admin/adminDashboardMain.html"]');
+  
+  const defaultLink = document.querySelector(
+    '.admin-sidebar nav a[href="/public/admin/adminDashboardMain.html"]'
+  );
   if (defaultLink) {
     defaultLink.classList.add("active");
   }

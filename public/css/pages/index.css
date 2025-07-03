@@ -13,9 +13,9 @@ html, body {
   color: white;
 }
 
-/* =======================
-   Hero Wrapper (Header + Main)
-======================= */
+/*
+   Hero Wrapper 
+*/
 .hero-wrapper {
   min-height: 100vh;
   background-image: url('/public/images/IndianFlag1.jpg'); 
@@ -26,9 +26,9 @@ html, body {
   flex-direction: column;
 }
 
-/* =======================
+/* 
    Header Section
-======================= */
+ */
 header {
   height: 80px;
   display: flex;
@@ -59,9 +59,9 @@ header {
   color: #000;
 }
 
-/* =======================
+/* 
    Main Hero Section
-======================= */
+ */
 .hero-section {
   display: flex;
   flex: 1;
@@ -97,15 +97,14 @@ header {
   animation-delay: 1.2s;
 }
 
-/* Right half placeholder  */
 .hero-section::after {
   content: '';
   flex: 1;
 }
 
-/* =======================
+/* 
    Animations
-======================= */
+ */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -138,9 +137,9 @@ header {
 }
 
 
-/* =======================
+/* 
    Footer
-======================= */
+ */
 footer {
   background-color: #222;
   padding: 1rem 2rem;

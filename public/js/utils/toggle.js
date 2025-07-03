@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Close sidebar on link click
+  // To Close sidebar on link click
   links.forEach((link) => {
     link.addEventListener("click", () => {
       sidebar.classList.remove("active");
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  // Close sidebar on outside click
+  //To Close sidebar on outside click
   document.body.addEventListener("click", function (e) {
     if (sidebar.classList.contains("active")) {
       if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {

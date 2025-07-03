@@ -1,6 +1,6 @@
-/* ===============  
+/* 
    Base Reset
-=============== */
+*/
 * {
   margin: 0;
   padding: 0;
@@ -16,9 +16,9 @@ body {
   overflow-x: hidden;
 }
 
-/* ===============  
+/* 
    Background Image
-=============== */
+ */
 .login-wrapper {
   min-height: 100vh;
   position: relative;
@@ -46,9 +46,9 @@ body {
   z-index: 1;
 }
 
-/* ===============  
+/*  
    Form Layout
-=============== */
+ */
 .login-form {
   width: 100%;
   max-width: 1200px;
@@ -60,9 +60,9 @@ body {
   backdrop-filter: blur(4px);
 }
 
-/* ===============  
+/*   
    Left Box
-=============== */
+ */
 .left-box {
   flex: 1;
   padding: 3rem;
@@ -138,9 +138,9 @@ body {
   }
 }
 
-/* ===============  
+/*   
    Right Box
-=============== */
+= */
 .right-box {
   flex: 1;
   display: flex;

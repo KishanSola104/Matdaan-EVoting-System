@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeBtn = document.getElementById("theme-toggle");
   const icon = themeBtn.querySelector("i");
 
-  // Check stored preference
+  // To Check stored preference
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-mode");
     icon.classList.remove("fa-moon");
@@ -27,13 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // JS For Handling The Admin name Clicking 
-// Toggle dropdown when admin name clicked
+// To Toggle dropdown when admin name clicked
 document.querySelector('.admin-name').addEventListener('click', (e) => {
   e.preventDefault();
   document.querySelector('.admin-profile').classList.toggle('show-dropdown');
 });
 
-// Hide dropdown when any dropdown link is clicked
+// To Hide dropdown when any dropdown link is clicked
 document.querySelectorAll('.admin-dropdown a').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ document.querySelectorAll('.admin-dropdown a').forEach(link => {
   });
 });
 
-// Hide dropdown when clicking outside
+//To  Hide dropdown when clicking outside
 document.body.addEventListener('click', function(e) {
   const profile = document.querySelector('.admin-profile');
   if (!profile.contains(e.target)) {
