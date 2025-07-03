@@ -56,6 +56,14 @@ function loadContent(url) {
             window.initAdminDashboardMain();
           }
         });
+      }else if(url.includes("adminElections.html"))
+      {
+        loadScript("/public/js/admin/adminElections.js",()=>{
+          if(window.initAdminElections)
+          {
+            window.initAdminElections();
+          }
+        });
       }
     })
     .catch((err) => {

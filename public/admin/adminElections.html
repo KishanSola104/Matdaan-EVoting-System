@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matdaan - Admin Dashboard Election Page</title>
+
+   
+</head>
+
+<body>
+
+    <main class="admin-main-section">
+        <h1>Manage Elections</h1>
+
+        <form id="electionForm">
+
+            <!-- Dropdown to select existing Election ID -->
+            <div class="form-group">
+                <label for="existingElectionId">Select Existing Election ID:</label>
+                <select id="existingElectionId" name="existingElectionId">
+                    <option value="">-- Select Election ID --</option>
+
+                </select>
+            </div>
+
+            <!-- Election ID -->
+            <div class="form-group">
+                <label for="electionId">Election ID:</label>
+                <input type="text" id="electionId" name="electionId" placeholder="Enter Election ID" />
+            </div>
+
+            <!-- Election Name -->
+            <div class="form-group">
+                <label for="electionName">Election Name:</label>
+                <input type="text" id="electionName" name="electionName" placeholder="Enter Election Name" />
+            </div>
+
+            <!-- State Dropdown -->
+            <div class="form-group">
+                <label for="state">State:</label>
+                <select id="state" name="state">
+                    <option value="">-- Select State --</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Karnataka">Karnataka</option>
+
+                </select>
+            </div>
+
+            <!-- Total No. of Parties -->
+            <div class="form-group">
+                <label for="totalParties">Total No. of Parties:</label>
+                <input type="text" id="totalParties" name="totalParties" pattern="[1-9]\d*" inputmode="numeric" required
+                    placeholder="Enter No. of Parties" title="Please enter a number greater than zero" />
+            </div>
+
+            <!-- Total No. of Candidates -->
+            <div class="form-group">
+                <label for="totalCandidates">Total No. of Candidates:</label>
+                <input type="text" id="totalCandidates" name="totalCandidates" pattern="[1-9]\d*" inputmode="numeric"
+                    required placeholder="Enter No. of Candidates" title="Please enter a number greater than zero" />
+            </div>
+
+            <!-- Total No. of Voters -->
+            <div class="form-group">
+                <label for="totalVoters">Total No. of Voters:</label>
+                <input type="text" id="totalVoters" name="totalVoters" pattern="[1-9]\d*" inputmode="numeric" required
+                    placeholder="Enter No. of Voters" title="Please enter a number greater than zero" />
+            </div>
+
+            <!-- Election Date -->
+            <div class="form-group">
+                <label>Election Date:</label>
+                <select id="electionYear"></select>
+                <select id="electionMonth"></select>
+                <select id="electionDay"></select>
+            </div>
+
+            <!-- Result Date -->
+            <div class="form-group">
+                <label>Result Date:</label>
+                <select id="resultDay"></select>
+                <select id="resultMonth"></select>
+                <select id="resultYear"></select>
+            </div>
+
+
+            <!-- Action Buttons -->
+            <div class="form-group button-group">
+                <button type="button" id="addBtn">Add Election</button>
+                <button type="button" id="updateBtn">Update Election</button>
+                <button type="button" id="deleteBtn">Delete Election</button>
+                <button type="button" id="viewBtn">View Elections</button>
+                <button type="reset" id="cancelBtn">Cancel</button>
+            </div>
+
+        </form>
+    </main>
+ <script src="/public/js/admin/adminElections.js" ></script>
+</body>
+
+</html>
