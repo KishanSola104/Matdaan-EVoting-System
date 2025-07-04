@@ -1,10 +1,15 @@
 window.initAdminElections = function () {
   console.log("Elections JS Is Loaded");
 
+  // Election Date Year, Month, Day
   const electionMonthSelect = document.getElementById("electionMonth");
   const electionYearSelect = document.getElementById("electionYear");
   const electionDaySelect = document.getElementById("electionDay");
-  console.log(electionMonthSelect);
+
+  // Result Date Year, Month, Day
+  const resultYearSelect = document.getElementById("resultYear");
+  const resultMonthSelect = document.getElementById("resultMonth");
+  const resultDaySelect = document.getElementById("resultDay");
 
   const months = [
     "January",
@@ -21,72 +26,70 @@ window.initAdminElections = function () {
     "December",
   ];
 
-  const placeHolderMonth = document.createElement("option");
-  placeHolderMonth.value = "";
-  placeHolderMonth.textContent = "Select Month";
-  electionMonthSelect.appendChild(placeHolderMonth);
+  // Add placeholder to a select
+  function addPlaceholder(select, text) {
+    const option = document.createElement("option");
+    option.value = "";
+    option.textContent = text;
+    select.appendChild(option);
+  }
 
-  const placeHolderYear = document.createElement("option");
-  placeHolderYear.value = "";
-  placeHolderYear.textContent = "Select Year";
-  electionYearSelect.appendChild(placeHolderYear);
-
-  const placeHolderDay=document.createElement("option");
-  placeHolderDay.value="";
-  placeHolderDay.textContent="Select Day";
-  electionDaySelect.appendChild(placeHolderDay);
+  // Add placeholders
+  addPlaceholder(electionMonthSelect, "Select Month");
+  addPlaceholder(resultMonthSelect, "Select Month");
+  addPlaceholder(electionYearSelect, "Select Year");
+  addPlaceholder(resultYearSelect, "Select Year");
+  addPlaceholder(electionDaySelect, "Select Day");
+  addPlaceholder(resultDaySelect, "Select Day");
 
   // Populate months
   months.forEach((monthName, index) => {
-    const option = document.createElement("option");
-    option.value = index + 1;
-    option.textContent = monthName;
-    electionMonthSelect.appendChild(option);
+    const electionMonthOption = document.createElement("option");
+    electionMonthOption.value = index + 1;
+    electionMonthOption.textContent = monthName;
+    electionMonthSelect.appendChild(electionMonthOption);
+
+    const resultMonthOption = document.createElement("option");
+    resultMonthOption.value = index + 1;
+    resultMonthOption.textContent = monthName;
+    resultMonthSelect.appendChild(resultMonthOption);
   });
 
   // Populate years
   for (let year = 2025; year <= 2035; year++) {
-    const option = document.createElement("option");
-    option.value = year;
-    option.textContent = year;
-    electionYearSelect.appendChild(option);
+    const electionYearOption = document.createElement("option");
+    electionYearOption.value = year;
+    electionYearOption.textContent = year;
+    electionYearSelect.appendChild(electionYearOption);
+
+    const resultYearOption = document.createElement("option");
+    resultYearOption.value = year;
+    resultYearOption.textContent = year;
+    resultYearSelect.appendChild(resultYearOption);
   }
 
-  // Function to check whether a year is leap year
+  // Check leap year
   const isLeapYear = (year) => {
-    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
   };
 
-  // Listener for month change
-  electionMonthSelect.addEventListener("change", () => {
-    const selectedMonth = parseInt(electionMonthSelect.value);
-    updateDayDropdown();
-    console.log("Selected Month", selectedMonth);
-  });
+  // Days in month
+  function getDaysInMonth(year, month) {
+    if ([1, 3, 5, 7, 8, 10, 12].includes(month)) return 31;
+    if ([4, 6, 9, 11].includes(month)) return 30;
+    if (month === 2) return isLeapYear(year) ? 29 : 28;
+    return 0;
+  }
 
-  // Listener for year change
-  electionYearSelect.addEventListener("change", () => {
-    const selectedYear = parseInt(electionYearSelect.value);
-    updateDayDropdown();
-    console.log("Selected Year", selectedYear);
-  });
+  // Update days for a given select
+  function updateDayDropdown(yearSelect, monthSelect, daySelect) {
+    const yearSelected = parseInt(yearSelect.value);
+    const monthSelected = parseInt(monthSelect.value);
 
-  // Update day dropdown
-  function updateDayDropdown() {
-    const yearSelected = parseInt(electionYearSelect.value);
-    const monthSelected = parseInt(electionMonthSelect.value);
+    daySelect.innerHTML = "";
+    addPlaceholder(daySelect, "Select Day");
 
-    // clear previous days
-    electionDaySelect.innerHTML = "";
-
-    const placeHolderDay = document.createElement("option");
-    placeHolderDay.value = "";
-    placeHolderDay.textContent = "Select Day";
-    electionDaySelect.appendChild(placeHolderDay);
-
-    if (!yearSelected || !monthSelected) {
-      return;
-    }
+    if (!yearSelected || !monthSelected) return;
 
     const daysInMonth = getDaysInMonth(yearSelected, monthSelected);
 
@@ -94,16 +97,25 @@ window.initAdminElections = function () {
       const option = document.createElement("option");
       option.value = day;
       option.textContent = day;
-      electionDaySelect.appendChild(option);
+      daySelect.appendChild(option);
     }
   }
 
-  // Determine days in month
-  function getDaysInMonth(year, month) {
-    if ([1, 3, 5, 7, 8, 10, 12].includes(month)) return 31;
-    else if ([4, 6, 9, 11].includes(month)) return 30;
-    else if (month === 2) {
-      return isLeapYear(year) ? 29 : 28;
-    } else return 0;
-  }
+  // Bind change events  ELECTION
+  electionYearSelect.addEventListener("change", () => {
+    updateDayDropdown(electionYearSelect, electionMonthSelect, electionDaySelect);
+  });
+
+  electionMonthSelect.addEventListener("change", () => {
+    updateDayDropdown(electionYearSelect, electionMonthSelect, electionDaySelect);
+  });
+
+  // Bind change events  RESULT
+  resultYearSelect.addEventListener("change", () => {
+    updateDayDropdown(resultYearSelect, resultMonthSelect, resultDaySelect);
+  });
+
+  resultMonthSelect.addEventListener("change", () => {
+    updateDayDropdown(resultYearSelect, resultMonthSelect, resultDaySelect);
+  });
 };
