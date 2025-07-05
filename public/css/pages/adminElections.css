@@ -1,4 +1,4 @@
-/* Base styles */
+
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -8,7 +8,6 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Main container */
 .admin-main-section {
   max-width: 700px;
   margin: 40px auto;
@@ -19,7 +18,6 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Heading */
 .admin-main-section h1 {
   text-align: center;
   margin-bottom: 30px;
@@ -27,7 +25,6 @@ body {
   font-size: 28px;
 }
 
-/* Form groups */
 form .form-group {
   margin-bottom: 20px;
 }
@@ -60,7 +57,7 @@ form .form-group {
   outline: none;
 }
 
-/* Dates section stacked vertically */
+
 .form-group.date-group {
   display: flex;
   flex-direction: column;
@@ -71,7 +68,7 @@ form .form-group {
   width: 100%;
 }
 
-/* Buttons: two per row */
+
 .button-group {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -103,7 +100,7 @@ form .form-group {
   background-color: #a71d2a;
 }
 
-/* Dark mode */
+
 body.dark-mode {
   background-color: #1e1e2f;
   color: #f1f1f1;
