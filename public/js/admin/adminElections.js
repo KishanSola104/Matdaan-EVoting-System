@@ -35,12 +35,12 @@ window.initAdminElections = function () {
   }
 
   // Add placeholders
-  addPlaceholder(electionMonthSelect, "Select Month");
-  addPlaceholder(resultMonthSelect, "Select Month");
-  addPlaceholder(electionYearSelect, "Select Year");
-  addPlaceholder(resultYearSelect, "Select Year");
-  addPlaceholder(electionDaySelect, "Select Day");
-  addPlaceholder(resultDaySelect, "Select Day");
+  addPlaceholder(electionMonthSelect, "Month");
+  addPlaceholder(resultMonthSelect, "Month");
+  addPlaceholder(electionYearSelect, "Year");
+  addPlaceholder(resultYearSelect, "Year");
+  addPlaceholder(electionDaySelect, "Day");
+  addPlaceholder(resultDaySelect, "Day");
 
   // Populate months
   months.forEach((monthName, index) => {
@@ -87,7 +87,7 @@ window.initAdminElections = function () {
     const monthSelected = parseInt(monthSelect.value);
 
     daySelect.innerHTML = "";
-    addPlaceholder(daySelect, "Select Day");
+    addPlaceholder(daySelect, "Day");
 
     if (!yearSelected || !monthSelected) return;
 

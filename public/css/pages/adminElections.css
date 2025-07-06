@@ -1,145 +1,136 @@
-
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f6f9;
   color: #333;
-  line-height: 1.6;
-  transition: background-color 0.3s, color 0.3s;
+  line-height: 1.5;
 }
 
 .admin-main-section {
-  max-width: 700px;
+  max-width: 800px;
   margin: 40px auto;
-  background: #ffffff;
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s, color 0.3s;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .admin-main-section h1 {
   text-align: center;
   margin-bottom: 30px;
-  color: #ffffff;
-  font-size: 28px;
+  color: #505458;
 }
 
-form .form-group {
+.form-group {
   margin-bottom: 20px;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 8px;
   font-weight: 600;
+  margin-bottom: 8px;
   color: #34495e;
-  font-size: 15px;
 }
 
-.form-group input[type="text"],
+.form-group input,
 .form-group select {
-  display: block;
   width: 100%;
-  padding: 10px 14px;
-  font-size: 16px;
+  padding: 10px 12px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 6px;
+  font-size: 16px;
   background: #fff;
   color: #333;
-  transition: border-color 0.3s, background-color 0.3s;
   box-sizing: border-box;
 }
 
-.form-group input[type="text"]:focus,
+.form-group input:focus,
 .form-group select:focus {
   border-color: #007bff;
   outline: none;
 }
 
-
 .form-group.date-group {
+  display: block;
+}
+
+.form-group.date-group label {
+  margin-bottom: 8px;
+}
+
+.form-group.date-group .date-group {
   display: flex;
-  flex-direction: column;
   gap: 15px;
 }
 
-.form-group.date-group select {
-  width: 100%;
+.form-group.date-group .date-group select {
+  flex: 1;
 }
-
 
 .button-group {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 15px;
-  margin-top: 30px;
 }
 
 .button-group button {
-  padding: 12px;
+  padding: 12px 20px;
   font-size: 16px;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
+  background: #007bff;
   color: #fff;
-  font-weight: 600;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .button-group button:hover {
-  background-color: #0056b3;
+  background: #0056b3;
+  transform: translateY(-2px);
 }
 
 .button-group button#cancelBtn {
-  background-color: #dc3545;
+  background: #dc3545;
 }
 
 .button-group button#cancelBtn:hover {
-  background-color: #a71d2a;
+  background: #a71d2a;
 }
 
-
+/* Dark mode */
 body.dark-mode {
   background-color: #1e1e2f;
   color: #f1f1f1;
 }
 
 body.dark-mode .admin-main-section {
-  background-color: #2c2f48;
-  color: #f1f1f1;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  background: #2c2f48;
 }
 
 body.dark-mode .form-group label {
   color: #f1f1f1;
 }
 
-body.dark-mode .form-group input[type="text"],
+body.dark-mode .form-group input,
 body.dark-mode .form-group select {
-  background-color: #3a3f5c;
+  background: #3a3f5c;
   color: #f1f1f1;
   border: 1px solid #555;
 }
 
-body.dark-mode .form-group input[type="text"]:focus,
-body.dark-mode .form-group select:focus {
-  border-color: #4e5de6;
-}
-
 body.dark-mode .button-group button {
-  background-color: #4e5de6;
+  background: #4e5de6;
 }
 
 body.dark-mode .button-group button:hover {
-  background-color: #2c3cb3;
+  background: #2c3cb3;
 }
 
 body.dark-mode .button-group button#cancelBtn {
-  background-color: #e63946;
+  background: #e63946;
 }
 
 body.dark-mode .button-group button#cancelBtn:hover {
-  background-color: #a71d2a;
+  background: #a71d2a;
 }
