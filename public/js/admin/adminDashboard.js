@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-  
   const defaultLink = document.querySelector(
     '.admin-sidebar nav a[href="/public/admin/adminDashboardMain.html"]'
   );
@@ -56,12 +55,16 @@ function loadContent(url) {
             window.initAdminDashboardMain();
           }
         });
-      }else if(url.includes("adminElections.html"))
-      {
-        loadScript("/public/js/admin/adminElections.js",()=>{
-          if(window.initAdminElections)
-          {
+      } else if (url.includes("adminElections.html")) {
+        loadScript("/public/js/admin/adminElections.js", () => {
+          if (window.initAdminElections) {
             window.initAdminElections();
+          }
+        });
+      } else if (url.includes("adminParties.html")) {
+        loadScript("/public/js/admin/adminParties.js", () => {
+          if (window.initAdminParties) {
+            window.initAdminParties();
           }
         });
       }

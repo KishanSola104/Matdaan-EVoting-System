@@ -1,6 +1,63 @@
 window.initAdminElections = function () {
   console.log("Elections JS Is Loaded");
 
+  // Get The State Select Dropdown
+  const states=document.getElementById("state");
+  console.log(states);
+  addPlaceholder(states,"Select State");
+
+  // Array for All States and Unioun Territories
+  const indianStatesAndUTs = [
+  // States
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal",
+  
+  // Union Territories
+  "Andaman and Nicobar Islands",
+  "Chandigarh",
+  "Dadra and Nagar Haveli and Daman and Diu",
+  "Delhi",
+  "Jammu and Kashmir",
+  "Ladakh",
+  "Lakshadweep",
+  "Puducherry"
+];
+
+indianStatesAndUTs.forEach(st => {
+  const state = document.createElement("option");
+  state.value=st;
+  state.textContent=st;
+  states.appendChild(state);
+});
+
+indianStatesAndUTs.sort();
+
   // Election Date Year, Month, Day
   const electionMonthSelect = document.getElementById("electionMonth");
   const electionYearSelect = document.getElementById("electionYear");
