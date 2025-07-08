@@ -3,7 +3,7 @@ window.initAdminElections = function () {
 
   // Get The State Select Dropdown
   const states=document.getElementById("state");
-  console.log(states);
+ // console.log(states);
   addPlaceholder(states,"Select State");
 
   // Array for All States and Unioun Territories

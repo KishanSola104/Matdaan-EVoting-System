@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Add Parties - Test</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      padding: 30px;
+    }
+    .box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    .box h2 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .value {
+      background: #007bff;
+      color: #fff;
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 5px;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Redirect Test Values</h2>
+    <p><strong>Election ID:</strong> <span id="electionID" class="value"></span></p>
+    <p><strong>Election Name:</strong> <span id="electionName" class="value"></span></p>
+    <p><strong>State Name:</strong> <span id="stateName" class="value"></span></p>
+    <p><strong>Number of Parties:</strong> <span id="numOfParties" class="value"></span></p>
+  </div>
+
+  <script>
+    // Get query params
+    const params = new URLSearchParams(window.location.search);
+
+    document.getElementById("electionID").textContent = params.get("electionID") || "N/A";
+    document.getElementById("electionName").textContent = params.get("electionName") || "N/A";
+    document.getElementById("stateName").textContent = params.get("stateName") || "N/A";
+    document.getElementById("numOfParties").textContent = params.get("numOfParties") || "N/A";
+
+    console.log("Query Params:", {
+      electionID: params.get("electionID"),
+      electionName: params.get("electionName"),
+      stateName: params.get("stateName"),
+      numOfParties: params.get("numOfParties")
+    });
+  </script>
+</body>
+</html>

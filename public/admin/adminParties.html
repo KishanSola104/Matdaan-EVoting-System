@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matdaan - Admin Election Page</title>
+    <title>Matdaan - Admin Manage Parties</title>
     <link rel="stylesheet" href="/public/css/pages/adminParties.css">
 </head>
+
 <body>
-    <!-- Here we will All The Main Section Code as you know we have base page code for Header , Side bar and Footer Already -->
-    <main></main>
+    <main class="admin-main-section">
+        <h1>Manage Parties</h1>
+
+        <!-- Elections Table -->
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>SELECT</th>
+                    <th>ELECTION ID</th>
+                    <th>ELECTION NAME</th>
+                    <th>STATE NAME</th>
+                    <th>NUMBER OF PARTIES</th>
+                </tr>
+            </thead>
+            <tbody id="elections-table-body">
+                <!-- Dummy rows -->
+                <tr>
+                    <td><a href="#" class="select-link">SELECT</a></td>
+                    <td>101</td>
+                    <td>State Assembly Election</td>
+                    <td>Gujarat</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td><a href="#" class="select-link">SELECT</a></td>
+                    <td>102</td>
+                    <td>Lok Sabha Election</td>
+                    <td>Maharashtra</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td><a href="#" class="select-link">SELECT</a></td>
+                    <td>103</td>
+                    <td>Municipal Election</td>
+                    <td>Rajasthan</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Action Buttons Section -->
+        <div class="button-group" id="action-buttons">
+            <button id="add-parties-btn">ADD PARTIES</button>
+            <button id="update-parties-btn">UPDATE PARTIES</button>
+            <button id="view-parties-btn">VIEW PARTIES</button>
+        </div>
+    </main>
+
     <script src="/public/js/admin/adminParties.js"></script>
 </body>
+
 </html>
