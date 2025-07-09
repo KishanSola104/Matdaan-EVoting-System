@@ -67,6 +67,12 @@ function loadContent(url) {
             window.initAdminParties();
           }
         });
+      } else if (url.includes("adminAddParties.html")) {
+        loadScript("/public/js/admin/adminAddParties.js", () => {
+          if (window.initAdminAddParties) {
+            window.initAdminAddParties();
+          }
+        });
       }
     })
     .catch((err) => {

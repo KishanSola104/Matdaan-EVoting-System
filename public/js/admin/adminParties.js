@@ -45,28 +45,33 @@ window.initAdminParties = function () {
     });
   });
 
-  // The Code for taking values to The next page
   document.getElementById("add-parties-btn").addEventListener("click", () => {
     if (currentlyClicked) {
-      // find the <tr> for the selected link
       const selectedRow = currentlyClicked.closest("tr");
-
       const dataCells = selectedRow.querySelectorAll("td");
 
       const electionID = dataCells[1].textContent.trim();
       const electionName = dataCells[2].textContent.trim();
       const stateName = dataCells[3].textContent.trim();
-      const numOfParties = dataCells[4].textContent.trim();
+      const numOfParties = parseInt(dataCells[4].textContent.trim(), 10);
 
-      const url =
-        `/public/admin/adminAddParties.html
-?` +
-        `electionID=${encodeURIComponent(electionID)}` +
-        `&electionName=${encodeURIComponent(electionName)}` +
-        `&stateName=${encodeURIComponent(stateName)}` +
-        `&numOfParties=${encodeURIComponent(numOfParties)}`;
+      if (!electionID || !electionName || !stateName || isNaN(numOfParties)) {
+        alert("Invalid election data. Try again.");
+        return;
+      }
 
-      window.location.href = url;
+      const electionData = {
+        electionID,
+        electionName,
+        stateName,
+        numOfParties,
+      };
+
+      // Clear Any Previous Session data is Exist 
+      sessionStorage.removeItem("selectedElection");
+      // set The Current data for the election selected
+      sessionStorage.setItem("selectedElection", JSON.stringify(electionData));
+      loadContent("/public/admin/adminAddParties.html");
     } else {
       alert("Please select an election first.");
     }
