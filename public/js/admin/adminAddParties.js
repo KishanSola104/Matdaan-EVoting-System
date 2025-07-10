@@ -3,7 +3,9 @@ window.initAdminAddParties = function () {
 
   const stored = sessionStorage.getItem("selectedElection");
   if (!stored) {
-    alert("Missing election data. Please go back and select an election again.");
+    alert(
+      "Missing election data. Please go back and select an election again."
+    );
     window.history.back();
     return;
   }
@@ -36,15 +38,21 @@ window.initAdminAddParties = function () {
     // Append fields to form
     form.appendChild(createFormField("text", "Party ID", `partyID-${i}`));
     form.appendChild(createFormField("text", "Party Name", `partyName-${i}`));
-    form.appendChild(createFormField("text", "Party Leader Name", `partyLeaderName-${i}`));
-    form.appendChild(createFormField("file", "Party Leader Picture", `leaderPic-${i}`));
+    form.appendChild(
+      createFormField("text", "Party Leader Name", `partyLeaderName-${i}`)
+    );
+    form.appendChild(
+      createFormField("file", "Party Leader Picture", `leaderPic-${i}`)
+    );
     form.appendChild(
       createFormField("select", "Party Established Year", `estYear-${i}`, "", {
         choices: generateYearOptions(1950, new Date().getFullYear()),
       })
     );
     form.appendChild(createFormField("file", "Party Logo", `partyLogo-${i}`));
-    form.appendChild(createFormField("number", "Total Candidates", `totalCandidates-${i}`));
+    form.appendChild(
+      createFormField("number", "Total Candidates", `totalCandidates-${i}`)
+    );
     form.appendChild(
       createFormField("text", "Election ID", `electionID-${i}`, electionID, {
         readOnly: true,
@@ -75,6 +83,8 @@ window.initAdminAddParties = function () {
     // Finally append wrapper to container
     container.appendChild(wrapper);
   }
+
+ 
 
   // Utility to generate individual form fields
   function createFormField(type, labelText, name, value = "", options = {}) {

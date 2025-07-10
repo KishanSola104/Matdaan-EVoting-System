@@ -1,6 +1,7 @@
-/* --------------------------------------------------------
-   Base styles (Light Mode by default)
--------------------------------------------------------- */
+/* 
+   Base styles 
+*/
+
 html,
 body {
   margin: 0;
@@ -22,9 +23,10 @@ body {
   color: black;
 }
 
-/* --------------------------------------------------------
+/* 
    Party Forms Layout
--------------------------------------------------------- */
+ */
+
 #party-forms {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -32,15 +34,17 @@ body {
   align-items: start;
 }
 
-/* --------------------------------------------------------
-   Form Card
--------------------------------------------------------- */
+/* 
+   Form Card 
+*/
+
 .party-form-wrapper {
-  background: #fff;
+  background: #8a8585;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: #333;
 }
 
 .party-form-wrapper h2 {
@@ -50,9 +54,10 @@ body {
   margin-bottom: 1rem;
 }
 
-/* --------------------------------------------------------
+/* 
    Form Fields
--------------------------------------------------------- */
+ */
+
 .party-form-wrapper .form-group {
   margin-bottom: 1rem;
 }
@@ -81,9 +86,10 @@ body {
   cursor: not-allowed;
 }
 
-/* --------------------------------------------------------
+/* 
    Buttons
--------------------------------------------------------- */
+ */
+
 .party-form-wrapper .button-group {
   display: flex;
   justify-content: space-between;
@@ -116,9 +122,10 @@ body {
   opacity: 0.9;
 }
 
-/* --------------------------------------------------------
+/*
    Responsive Tweaks
--------------------------------------------------------- */
+ */
+
 @media (max-width: 1024px) {
   #party-forms {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -139,13 +146,14 @@ body {
   }
 }
 
-/* --------------------------------------------------------
+/* 
    Dark Mode
--------------------------------------------------------- */
+*/
+
 @media (prefers-color-scheme: dark) {
   html,
   body {
-    background-color: #1e1e1e;
+    background-color: #777373;
     color: #f2f2f2;
   }
 
@@ -156,7 +164,7 @@ body {
   }
 
   .party-form-wrapper {
-    background: #2b2b2b;
+    background: #2c2f48;
     border: 1px solid #444;
     color: #f2f2f2;
   }
@@ -167,7 +175,7 @@ body {
 
   .party-form-wrapper input,
   .party-form-wrapper select {
-    background: #333;
+    background: #3a3f5c;
     border: 1px solid #444;
     color: #f2f2f2;
   }
@@ -177,3 +185,5 @@ body {
     color: #bbb;
   }
 }
+
+
