@@ -39,7 +39,7 @@ body {
 */
 
 .party-form-wrapper {
-  background: #8a8585;
+  background: #cfc6c6;;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 1.5rem;
@@ -146,44 +146,50 @@ body {
   }
 }
 
-/* 
-   Dark Mode
-*/
 
-@media (prefers-color-scheme: dark) {
-  html,
-  body {
-    background-color: #777373;
-    color: #f2f2f2;
-  }
+/* Dark mode */
 
-  .admin-main-section h1 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: rgb(211, 204, 204);
-  }
-
-  .party-form-wrapper {
-    background: #2c2f48;
-    border: 1px solid #444;
-    color: #f2f2f2;
-  }
-
-  .party-form-wrapper h2 {
-    color: #f2f2f2;
-  }
-
-  .party-form-wrapper input,
-  .party-form-wrapper select {
-    background: #3a3f5c;
-    border: 1px solid #444;
-    color: #f2f2f2;
-  }
-
-  .party-form-wrapper input:read-only {
-    background: #555;
-    color: #bbb;
-  }
+body.dark-mode {
+  background-color: #1e1e2f;
+  color: #f1f1f1;
 }
 
+/* Main heading inside .admin-main-section */
+body.dark-mode .admin-main-section h1 {
+  color: #f1f1f1;
+}
 
+/* Dark background for the form wrapper */
+body.dark-mode .party-form-wrapper {
+  background: #2c2f48;
+  border: 1px solid #555;
+  color: #f1f1f1;
+}
+
+/* Form headings inside the wrapper */
+body.dark-mode .party-form-wrapper h2 {
+  color: #f1f1f1;
+}
+
+/* Input and select fields */
+body.dark-mode .party-form-wrapper input,
+body.dark-mode .party-form-wrapper select {
+  background: #3a3f5c;
+  border: 1px solid #555;
+  color: #f1f1f1;
+}
+
+/* Read-only input fields */
+body.dark-mode .party-form-wrapper input:read-only {
+  background: #555;
+  color: #bbb;
+}
+
+/*  Dark mode for button groups */
+body.dark-mode .button-group button#cancelBtn {
+  background: #e63946;
+}
+
+body.dark-mode .button-group button#cancelBtn:hover {
+  background: #a71d2a;
+}
