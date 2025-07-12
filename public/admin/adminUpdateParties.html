@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Update Parties</title>
+  <link rel="stylesheet" href="/public/css/pages/adminUpdateParties.css" />
+  <link rel="stylesheet" href="/public/css/utils/customConfirm.css" />
+</head>
+
+<body>
+  <main class="admin-main-section">
+    <h1>Update Party Data</h1>
+    <div id="party-forms"></div>
+  </main>
+
+  <!-- Custom Alert Box -->
+  <div id="confirmModal" class="modal">
+    <div class="modal-content">
+      <p id="confirmMessage"></p>
+      <div class="modal-buttons">
+        <button id="modalConfirmBtn">Yes</button>
+        <button id="modalCancelBtn">No</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/public/js/utils/customConfirm.js"></script>
+  <script src="/public/js/admin/adminUpdateParties.js"></script>
+</body>
+
+</html>

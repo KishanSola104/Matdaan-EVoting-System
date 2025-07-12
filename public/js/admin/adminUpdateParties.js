@@ -1,11 +1,9 @@
-window.initAdminAddParties = function () {
-  console.log("Admin Add Parties JS Loaded");
+window.initAdminUpdateParties = function () {
+  console.log("Admin Update Parties JS Is Loaded");
 
   const stored = sessionStorage.getItem("selectedElection");
   if (!stored) {
-    alert(
-      "Missing election data. Please go back and select an election again."
-    );
+    alert("Missing Election Data");
     window.history.back();
     return;
   }
@@ -19,24 +17,25 @@ window.initAdminAddParties = function () {
   console.log("Election ID:", electionID);
   console.log("Election Name:", electionName);
   console.log("State Name:", stateName);
-  console.log("Num of Parties:", numOfParties);
+  console.log("Number Of Parties:", numOfParties);
 
   const container = document.getElementById("party-forms");
 
   for (let i = 1; i <= numOfParties; i++) {
-    // Create wrapper div for each party form
     const wrapper = document.createElement("div");
     wrapper.classList.add("party-form-wrapper");
 
-    // Heading for the party form
     const heading = document.createElement("h2");
     heading.textContent = `Party ${i} Form`;
     wrapper.appendChild(heading);
 
     const form = document.createElement("form");
 
-    // Append fields to form
-    form.appendChild(createFormField("text", "Party ID", `partyID-${i}`));
+    form.appendChild(
+      createFormField("text", "Party ID", `partyID-${i}`, `PID-${i}`, {
+        readOnly: true,
+      })
+    );
     form.appendChild(createFormField("text", "Party Name", `partyName-${i}`));
     form.appendChild(
       createFormField("text", "Party Leader Name", `partyLeaderName-${i}`)
@@ -59,45 +58,47 @@ window.initAdminAddParties = function () {
       })
     );
 
-    // Submit & Cancel buttons
     const buttonGroup = document.createElement("div");
     buttonGroup.classList.add("button-group");
 
-    const submitBtn = document.createElement("button");
-    submitBtn.type = "submit";
-    submitBtn.textContent = "Submit";
-    submitBtn.classList.add("submit-btn");
+    const updateBtn = document.createElement("button");
+    updateBtn.type = "button";
+    updateBtn.textContent = "Update";
+    updateBtn.classList.add("update-btn");
 
-    const cancelBtn = document.createElement("button");
-    cancelBtn.type = "button";
-    cancelBtn.textContent = "Cancel";
-    cancelBtn.classList.add("cancel-btn");
+    const disableBtn = document.createElement("button");
+    disableBtn.type = "button";
+    disableBtn.textContent = "Disable";
+    disableBtn.classList.add("disable-btn");
 
-    buttonGroup.appendChild(submitBtn);
-    buttonGroup.appendChild(cancelBtn);
+    updateBtn.addEventListener("click", () => {
+      showCustomConfirm(
+        `Are you sure you want to update the data of party ${i}?`,
+        () => {
+          console.log(`Update confirmed for Party ${i}`);
+          const partyName = form.querySelector(`#partyName-${i}`).value;
+          console.log("Party Name:", partyName);
+          // TODO: handle update logic
+        }
+      );
+    });
+
+    disableBtn.addEventListener("click", () => {
+      showCustomConfirm("Are you sure you want to disable this party?", () => {
+        console.log(`Party ${i} disabled!`);
+        // TODO: handle disable logic
+      });
+    });
+
+    buttonGroup.appendChild(updateBtn);
+    buttonGroup.appendChild(disableBtn);
     form.appendChild(buttonGroup);
 
-    // Append form to wrapper
     wrapper.appendChild(form);
-
-    // Finally append wrapper to container
     container.appendChild(wrapper);
-
-    // On Click of The submit Button
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      console.log(`Submitted Data of The Part ${i}`);
-    });
-
-    cancelBtn.addEventListener("click", () => {
-      if (confirm("Are you sure you want to clear this form?")) {
-        form.reset();
-      }
-    });
   }
 
-  // Utility to generate individual form fields
+  // Helper to create fields
   function createFormField(type, labelText, name, value = "", options = {}) {
     const fieldWrapper = document.createElement("div");
     fieldWrapper.classList.add("form-group");
@@ -132,11 +133,10 @@ window.initAdminAddParties = function () {
 
     fieldWrapper.appendChild(label);
     fieldWrapper.appendChild(input);
-
     return fieldWrapper;
   }
 
-  // Utility to generate a range of years
+  // Helper to generate year options
   function generateYearOptions(start, end) {
     const years = [];
     for (let y = end; y >= start; y--) {
@@ -144,4 +144,48 @@ window.initAdminAddParties = function () {
     }
     return years;
   }
+
+
+// Create modal HTML
+function createCustomConfirmModal() {
+  const modal = document.createElement("div");
+  modal.id = "confirmModal";
+  modal.className = "modal";
+  modal.style.display = "none";
+  modal.innerHTML = `
+    <div class="modal-content">
+      <p id="confirmMessage"></p>
+      <div class="modal-buttons">
+        <button id="modalConfirmBtn">Yes</button>
+        <button id="modalCancelBtn">No</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+}
+
+// Show modal with custom message and callback
+function showCustomConfirm(message, onConfirm) {
+  const modal = document.getElementById("confirmModal");
+  const messageElem = document.getElementById("confirmMessage");
+  const confirmBtn = document.getElementById("modalConfirmBtn");
+  const cancelBtn = document.getElementById("modalCancelBtn");
+
+  messageElem.textContent = message;
+  modal.classList.add("show");
+
+  function closeModal() {
+    modal.classList.remove("show");
+    confirmBtn.removeEventListener("click", confirmHandler);
+    cancelBtn.removeEventListener("click", closeModal);
+  }
+
+  function confirmHandler() {
+    onConfirm();
+    closeModal();
+  }
+
+  confirmBtn.addEventListener("click", confirmHandler);
+  cancelBtn.addEventListener("click", closeModal);
+}
 };

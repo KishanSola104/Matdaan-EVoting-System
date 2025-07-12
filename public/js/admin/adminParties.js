@@ -45,6 +45,8 @@ window.initAdminParties = function () {
     });
   });
 
+
+  // Add Parties Button Got Clicked 
   document.getElementById("add-parties-btn").addEventListener("click", () => {
     if (currentlyClicked) {
       const selectedRow = currentlyClicked.closest("tr");
@@ -74,6 +76,43 @@ window.initAdminParties = function () {
       loadContent("/public/admin/adminAddParties.html");
     } else {
       alert("Please select an election first.");
+    }
+  });
+
+
+  // Update Button Got Clicked
+  document.getElementById("update-parties-btn").addEventListener("click",()=>
+  {
+    if(currentlyClicked)
+    {
+      const selectedRow=currentlyClicked.closest("tr");
+      const dataCells=selectedRow.querySelectorAll("td");
+
+      const electionID=dataCells[1].textContent.trim();
+      const electionName=dataCells[2].textContent.trim();
+      const stateName=dataCells[3].textContent.trim();
+      const numOfParties=dataCells[4].textContent.trim();
+
+      if(!electionID || !electionName || !stateName || isNaN(numOfParties))
+      {
+        alert("Please Select Valid Election Data");
+        return;
+      }
+
+      const electionData={
+        electionID,
+        electionName,
+        stateName,
+        numOfParties,
+      };
+
+      // Clear any Previous Session data if Exist
+      sessionStorage.removeItem("selectedElection");
+      // set The Selected Election Data to The sesssion
+      sessionStorage.setItem("selectedElection",JSON.stringify(electionData));
+      loadContent("/public/admin/adminUpdateParties.html")
+    }else{
+      alert("Please select An Election");
     }
   });
 };
