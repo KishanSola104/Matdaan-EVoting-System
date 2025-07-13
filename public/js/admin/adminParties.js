@@ -45,8 +45,7 @@ window.initAdminParties = function () {
     });
   });
 
-
-  // Add Parties Button Got Clicked 
+  // Add Parties Button Got Clicked
   document.getElementById("add-parties-btn").addEventListener("click", () => {
     if (currentlyClicked) {
       const selectedRow = currentlyClicked.closest("tr");
@@ -69,7 +68,7 @@ window.initAdminParties = function () {
         numOfParties,
       };
 
-      // Clear Any Previous Session data is Exist 
+      // Clear Any Previous Session data is Exist
       sessionStorage.removeItem("selectedElection");
       // set The Current data for the election selected
       sessionStorage.setItem("selectedElection", JSON.stringify(electionData));
@@ -79,27 +78,60 @@ window.initAdminParties = function () {
     }
   });
 
-
   // Update Button Got Clicked
-  document.getElementById("update-parties-btn").addEventListener("click",()=>
-  {
-    if(currentlyClicked)
-    {
-      const selectedRow=currentlyClicked.closest("tr");
-      const dataCells=selectedRow.querySelectorAll("td");
+  document
+    .getElementById("update-parties-btn")
+    .addEventListener("click", () => {
+      if (currentlyClicked) {
+        const selectedRow = currentlyClicked.closest("tr");
+        const dataCells = selectedRow.querySelectorAll("td");
 
-      const electionID=dataCells[1].textContent.trim();
-      const electionName=dataCells[2].textContent.trim();
-      const stateName=dataCells[3].textContent.trim();
-      const numOfParties=dataCells[4].textContent.trim();
+        const electionID = dataCells[1].textContent.trim();
+        const electionName = dataCells[2].textContent.trim();
+        const stateName = dataCells[3].textContent.trim();
+        const numOfParties = dataCells[4].textContent.trim();
 
-      if(!electionID || !electionName || !stateName || isNaN(numOfParties))
-      {
+        if (!electionID || !electionName || !stateName || isNaN(numOfParties)) {
+          alert("Please Select Valid Election Data");
+          return;
+        }
+
+        const electionData = {
+          electionID,
+          electionName,
+          stateName,
+          numOfParties,
+        };
+
+        // Clear any Previous Session data if Exist
+        sessionStorage.removeItem("selectedElection");
+        // set The Selected Election Data to The sesssion
+        sessionStorage.setItem(
+          "selectedElection",
+          JSON.stringify(electionData)
+        );
+        loadContent("/public/admin/adminUpdateParties.html");
+      } else {
+        alert("Please select An Election");
+      }
+    });
+
+  document.getElementById("view-parties-btn").addEventListener("click", () => {
+    if (currentlyClicked) {
+      const selectedRow = currentlyClicked.closest("tr");
+      const dataCells = selectedRow.querySelectorAll("td");
+
+      const electionID = dataCells[1].textContent.trim();
+      const electionName = dataCells[2].textContent.trim();
+      const stateName = dataCells[3].textContent.trim();
+      const numOfParties = dataCells[4].textContent.trim();
+
+      if (!electionID || !electionName || !stateName || isNaN(numOfParties)) {
         alert("Please Select Valid Election Data");
         return;
       }
 
-      const electionData={
+      const electionData = {
         electionID,
         electionName,
         stateName,
@@ -109,10 +141,10 @@ window.initAdminParties = function () {
       // Clear any Previous Session data if Exist
       sessionStorage.removeItem("selectedElection");
       // set The Selected Election Data to The sesssion
-      sessionStorage.setItem("selectedElection",JSON.stringify(electionData));
-      loadContent("/public/admin/adminUpdateParties.html")
-    }else{
-      alert("Please select An Election");
+      sessionStorage.setItem("selectedElection", JSON.stringify(electionData));
+      loadContent("/public/admin/adminViewParties.html");
+    } else {
+      alert("Please Select An Election");
     }
   });
 };

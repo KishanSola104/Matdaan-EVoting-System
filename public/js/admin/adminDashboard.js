@@ -73,15 +73,19 @@ function loadContent(url) {
             window.initAdminAddParties();
           }
         });
-      }else if(url.includes("adminUpdateParties.html"))
-      {
-        loadScript("/public/js/admin/adminUpdateParties.js",()=>
-        {
-          if(window.initAdminUpdateParties)
-          {
+      }else if(url.includes("adminUpdateParties.html")){
+        loadScript("/public/js/admin/adminUpdateParties.js",()=>{
+          if(window.initAdminUpdateParties){
             window.initAdminUpdateParties();
           }
         });
+      }else if(url.includes("adminViewParties.html")){
+        loadScript("/public/js/admin/adminViewParties.js",()=>
+        {
+          if(window.initAdminViewParties){
+            window.initAdminViewParties();
+          }
+        })
       }
     })
     .catch((err) => {
