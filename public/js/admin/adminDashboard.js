@@ -86,6 +86,12 @@ function loadContent(url) {
             window.initAdminViewParties();
           }
         })
+      }else if(url.includes("adminCandidates.html")){
+        loadScript("/public/js/admin/adminCandidates.js",()=>{
+          if(window.initAdminCandidates){
+            window.initAdminCandidates();
+          }
+        })
       }
     })
     .catch((err) => {

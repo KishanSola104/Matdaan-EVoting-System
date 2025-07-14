@@ -1,8 +1,9 @@
 window.initAdminViewParties = function () {
   console.log("Admin View Parties JS Loaded");
 
-  // Check session storage for election data
+  // Get election info from session storage
   const stored = sessionStorage.getItem("selectedElection");
+
   if (!stored) {
     alert("Missing Election Data");
     window.history.back();
@@ -10,142 +11,106 @@ window.initAdminViewParties = function () {
   }
 
   const electionData = JSON.parse(stored);
-  const { electionID, electionName, stateName, numOfParties } = electionData;
-
-  console.log("Election ID:", electionID);
-  console.log("Election Name:", electionName);
-  console.log("State Name:", stateName);
-  console.log("Number Of Parties:", numOfParties);
 
   const container = document.getElementById("party-forms");
 
-  for (let i = 1; i <= numOfParties; i++) {
+  // Loop through all parties
+  for (let i = 1; i <= electionData.numOfParties; i++) {
+    // Create a wrapper div
     const wrapper = document.createElement("div");
-    wrapper.classList.add("party-form-wrapper");
+    wrapper.className = "party-form-wrapper";
 
+    // Add a heading
     const heading = document.createElement("h2");
     heading.textContent = `Party ${i} Form`;
     wrapper.appendChild(heading);
 
+    // Create the form
     const form = document.createElement("form");
 
-    // All fields are read-only in View page
-    form.appendChild(
-      createFormField("text", "Party ID", `partyID-${i}`, `PID-${i}`, {
-        readOnly: true,
-      })
-    );
-    form.appendChild(
-      createFormField("text", "Party Name", `partyName-${i}`, "", {
-        readOnly: true,
-      })
-    );
-    form.appendChild(
-      createFormField("text", "Party Leader Name", `partyLeaderName-${i}`, "", {
-        readOnly: true,
-      })
-    );
+    // Add read-only fields
+    form.appendChild(createField("text", "Party ID", `partyID-${i}`, `PID-${i}`));
+    form.appendChild(createField("text", "Party Name", `partyName-${i}`));
+    form.appendChild(createField("text", "Party Leader Name", `partyLeaderName-${i}`));
 
-    // Leader image preview
-    const leaderImg = createPlaceholderImage(
-      `currentLeaderImg-${i}`,
-      "https://via.placeholder.com/120x80?text=No+Leader",
-      "Current Leader Image Placeholder"
-    );
-    form.appendChild(leaderImg);
+    // Add leader image
+    form.appendChild(createImage(`currentLeaderImg-${i}`, "https://via.placeholder.com/120x80?text=No+Leader", "Leader Image"));
 
-    form.appendChild(
-      createFormField("select", "Party Established Year", `estYear-${i}`, "", {
-        choices: generateYearOptions(1950, new Date().getFullYear()),
-        readOnly: true,
-      })
-    );
+    // Add established year dropdown
+    const years = getYears(1950, new Date().getFullYear());
+    form.appendChild(createSelect("Party Established Year", `estYear-${i}`, years));
 
-    // Party logo preview
-    const logoImg = createPlaceholderImage(
-      `currentPartyLogo-${i}`,
-      "https://via.placeholder.com/120x80?text=No+Logo",
-      "Current Party Logo Placeholder"
-    );
-    form.appendChild(logoImg);
+    // Add party logo image
+    form.appendChild(createImage(`currentPartyLogo-${i}`, "https://via.placeholder.com/120x80?text=No+Logo", "Party Logo"));
 
-    form.appendChild(
-      createFormField(
-        "number",
-        "Total Candidates",
-        `totalCandidates-${i}`,
-        "",
-        { readOnly: true }
-      )
-    );
-    form.appendChild(
-      createFormField("text", "Election ID", `electionID-${i}`, electionID, {
-        readOnly: true,
-      })
-    );
+    form.appendChild(createField("number", "Total Candidates", `totalCandidates-${i}`));
+    form.appendChild(createField("text", "Election ID", `electionID-${i}`, electionData.electionID));
 
     wrapper.appendChild(form);
     container.appendChild(wrapper);
   }
 
-  // ------- Helper functions -------
+  // ------- Helper Functions ----------
 
-  /* Creates a label + input field
-   */
-  function createFormField(type, labelText, name, value = "", options = {}) {
-    const fieldWrapper = document.createElement("div");
-    fieldWrapper.classList.add("form-group");
+  function createField(type, label, name, value = "") {
+    const group = document.createElement("div");
+    group.className = "form-group";
 
-    const label = document.createElement("label");
-    label.textContent = labelText;
-    label.setAttribute("for", name);
+    const labelEl = document.createElement("label");
+    labelEl.textContent = label;
+    labelEl.htmlFor = name;
 
-    let input;
-    if (type === "select") {
-      input = document.createElement("select");
-      input.id = name;
-      input.name = name;
-      input.disabled = true;
-      options.choices.forEach((choice) => {
-        const opt = document.createElement("option");
-        opt.value = choice;
-        opt.textContent = choice;
-        input.appendChild(opt);
-      });
-    } else {
-      input = document.createElement("input");
-      input.type = type;
-      input.id = name;
-      input.name = name;
-      input.value = value;
-      if (options.readOnly) {
-        input.readOnly = true;
-      }
-    }
+    const input = document.createElement("input");
+    input.type = type;
+    input.id = name;
+    input.name = name;
+    input.value = value;
+    input.readOnly = true;
 
-    fieldWrapper.appendChild(label);
-    fieldWrapper.appendChild(input);
-    return fieldWrapper;
+    group.appendChild(labelEl);
+    group.appendChild(input);
+    return group;
   }
 
-  /*Creates a dummy placeholder image element
-   */
-  function createPlaceholderImage(id, src, alt) {
+  function createSelect(label, name, options) {
+    const group = document.createElement("div");
+    group.className = "form-group";
+
+    const labelEl = document.createElement("label");
+    labelEl.textContent = label;
+    labelEl.htmlFor = name;
+
+    const select = document.createElement("select");
+    select.id = name;
+    select.name = name;
+    select.disabled = true;
+
+    options.forEach(year => {
+      const option = document.createElement("option");
+      option.value = year;
+      option.textContent = year;
+      select.appendChild(option);
+    });
+
+    group.appendChild(labelEl);
+    group.appendChild(select);
+    return group;
+  }
+
+  function createImage(id, src, alt) {
     const img = document.createElement("img");
     img.id = id;
     img.src = src;
     img.alt = alt;
-    img.classList.add("preview-image");
+    img.className = "preview-image";
     return img;
   }
 
-  /*Generate array of years
-   */
-  function generateYearOptions(start, end) {
-    const years = [];
-    for (let y = end; y >= start; y--) {
-      years.push(y);
+  function getYears(start, end) {
+    const arr = [];
+    for (let year = end; year >= start; year--) {
+      arr.push(year);
     }
-    return years;
+    return arr;
   }
 };

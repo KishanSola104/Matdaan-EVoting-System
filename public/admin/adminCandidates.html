@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Manage Candidates</title>
+    <link rel="stylesheet" href="/public/css/pages/adminCandidates.css">
+</head>
+
+<body>
+    <main class="admin-main-section">
+        <h1>Manage Candidates</h1>
+
+        <!-- Elections Table -->
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>SELECT</th>
+                    <th>ELECTION ID</th>
+                    <th>ELECTION NAME</th>
+                    <th>STATE NAME</th>
+                    <th>NUMBER OF PARTIES</th>
+                </tr>
+            </thead>
+            <tbody id="elections-table-body">
+                <!-- Dummy rows -->
+                <tr>
+                    <td><a href="#" class="select-link">SELECT</a></td>
+                    <td>101</td>
+                    <td>State Assembly Election</td>
+                    <td>Gujarat</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td><a href="#" class="select-link">SELECT</a></td>
+                    <td>102</td>
+                    <td>Lok Sabha Election</td>
+                    <td>Maharashtra</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td><a href="#" class="select-link">SELECT</a></td>
+                    <td>103</td>
+                    <td>Municipal Election</td>
+                    <td>Rajasthan</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <!-- Second table placeholder for parties data -->
+        <div id="parties-table-container"></div>
+
+        <!-- Action Buttons Section -->
+        <div class="button-group" id="action-buttons">
+            <button id="add-candidates-btn">ADD CANDIDATES</button>
+            <button id="update-candidates-btn">UPDATE CANDIDATES</button>
+            <button id="update-candidates-btn">UPDATE CANDIDATES</button>
+            <button id="view-candidates-btn">VIEW CANDIDATES</button>
+        </div>
+    </main>
+
+    <script src="/public/js/admin/adminCandidates.js"></script>
+</body>
+
+</html>
