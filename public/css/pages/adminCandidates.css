@@ -1,4 +1,7 @@
-/* Base layout */
+/* -------------------------------
+    BASE LAYOUT
+-------------------------------- */
+
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -7,7 +10,7 @@ body {
   line-height: 1.5;
 }
 
-/* Main section styling */
+/* Main container styling */
 .admin-main-section {
   max-width: 1000px;
   margin: 40px auto;
@@ -23,7 +26,11 @@ body {
   color: #505458;
 }
 
-/* Table styling */
+
+/* -------------------------------
+    TABLE STYLING
+-------------------------------- */
+
 .admin-table {
   width: 100%;
   border-collapse: collapse;
@@ -31,6 +38,7 @@ body {
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
 }
 
 .admin-table thead {
@@ -45,17 +53,32 @@ body {
   text-align: left;
 }
 
-.admin-table a.select-link {
+.admin-table a.select-link,
+.admin-table a.select-party-link {
   color: #007bff;
   text-decoration: none;
   font-weight: bold;
+  display: inline-block;
 }
 
-.admin-table a.select-link:hover {
+.admin-table a.select-link:hover,
+.admin-table a.select-party-link:hover {
   text-decoration: underline;
 }
 
-/* Action buttons group */
+.select-link.active,
+.select-party-link.active {
+  background-color: #d1d5da;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+
+/* -------------------------------
+    ACTION BUTTONS
+-------------------------------- */
+
 .button-group {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -80,16 +103,11 @@ body {
   transform: translateY(-2px);
 }
 
-.select-link.active {
-  background-color: #d1d5da;
-  color: #fff;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
 
+/* -------------------------------
+    DARK MODE
+-------------------------------- */
 
-
-/* Dark mode overrides */
 body.dark-mode {
   background-color: #1e1e2f;
   color: #f1f1f1;
@@ -114,7 +132,8 @@ body.dark-mode .admin-table td {
   border-color: #555;
 }
 
-body.dark-mode .admin-table a.select-link {
+body.dark-mode .admin-table a.select-link,
+body.dark-mode .admin-table a.select-party-link {
   color: #4dabf7;
 }
 
@@ -126,18 +145,18 @@ body.dark-mode .button-group button:hover {
   background: #2c3cb3;
 }
 
-body.dark-mode .select-link.active {
+body.dark-mode .select-link.active,
+body.dark-mode .select-party-link.active {
   background-color: #4e5de6;
   color: #fff;
 }
 
 
+/* -------------------------------
+    RESPONSIVENESS
+-------------------------------- */
 
-/* 
-    RESPONSIVE STYLES
- */
-
-/* Tablet view */
+/* Tablets */
 @media (max-width: 1024px) {
   .admin-main-section {
     margin: 20px;
@@ -156,7 +175,7 @@ body.dark-mode .select-link.active {
   }
 }
 
-/* Mobile view */
+/* Mobiles */
 @media (max-width: 768px) {
   .admin-main-section {
     margin: 10px;
@@ -167,14 +186,6 @@ body.dark-mode .select-link.active {
     display: block;
     width: 100%;
     overflow-x: auto;
-  }
-
-  .admin-table thead {
-    display: table-header-group;
-  }
-
-  .admin-table tbody {
-    display: table-row-group;
   }
 
   .admin-table th,
@@ -201,7 +212,7 @@ body.dark-mode .select-link.active {
   }
 }
 
-/* Extra small devices (e.g. older phones) */
+/* Extra small devices */
 @media (max-width: 480px) {
   .admin-table th,
   .admin-table td {
@@ -217,4 +228,14 @@ body.dark-mode .select-link.active {
     padding: 8px 12px;
     font-size: 12px;
   }
+}
+
+
+/* -------------------------------
+    PARTY TABLE CONTAINER
+-------------------------------- */
+
+#parties-table-container {
+  margin-top: 30px;
+  width: 100%;
 }

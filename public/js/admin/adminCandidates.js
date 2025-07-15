@@ -11,18 +11,22 @@ window.initAdminCandidates = function () {
 
   let currentlyClicked = null;
 
+  // --- TABLE 1 SELECT LINK HANDLERS ---
   selectLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
 
+      // Toggle off if same link clicked again
       if (this === currentlyClicked) {
-        actionButtons.style.display = "none";
         this.classList.remove("active");
         currentlyClicked = null;
+
+        // Hide action buttons and table 2
+        actionButtons.style.display = "none";
+        clearPartyTable();
       } else {
-        selectLinks.forEach((l) => {
-          l.classList.remove("active");
-        });
+        // Clear previous active links
+        selectLinks.forEach((l) => l.classList.remove("active"));
 
         this.classList.add("active");
         currentlyClicked = this;
@@ -54,12 +58,9 @@ window.initAdminCandidates = function () {
     });
   });
 
+  // --- GENERATE SECOND TABLE ---
   function generatePartyTable(numOfParties, electionID, electionName) {
-    // Remove old party table if exists
-    const oldWrapper = document.getElementById("party-table-wrapper");
-    if (oldWrapper) {
-      oldWrapper.remove();
-    }
+    clearPartyTable();
 
     const wrapper = document.createElement("div");
     wrapper.id = "party-table-wrapper";
@@ -122,38 +123,151 @@ window.initAdminCandidates = function () {
 
       tbody.appendChild(tr);
     }
+
     table.appendChild(tbody);
     wrapper.appendChild(table);
 
-    document.querySelector("main").appendChild(wrapper);
+    const partyTableContainer = document.getElementById(
+      "parties-table-container"
+    );
+    partyTableContainer.innerHTML = "";
+    partyTableContainer.appendChild(wrapper);
 
-    attachPartyTableListeners();
+    attachPartyTableListeners(wrapper);
   }
 
-  function attachPartyTableListeners() {
-    const partyLinks = document.querySelectorAll(".select-party-link");
+  function clearPartyTable() {
+    const partyTableContainer = document.getElementById(
+      "parties-table-container"
+    );
+    partyTableContainer.innerHTML = "";
+    actionButtons.style.display = "none";
+  }
+
+  // --- TABLE 2 SELECT LINK HANDLERS ---
+
+  let currentlyClickedPartyLink = null;
+
+  function attachPartyTableListeners(wrapper) {
+    const partyLinks = wrapper.querySelectorAll(".select-party-link");
 
     partyLinks.forEach((link) => {
       link.addEventListener("click", function (e) {
         e.preventDefault();
 
-        partyLinks.forEach((l) => {
-          l.classList.remove("active");
-        });
+        // User clicked the same link again → toggle OFF
+        if (link === currentlyClickedPartyLink) {
+          link.classList.remove("active");
+          currentlyClickedPartyLink = null;
 
-        this.classList.add("active");
-        showActionButtons();
+          // Hide action buttons
+          const actionButtons = document.getElementById("action-buttons");
+          actionButtons.style.display = "none";
+        } else {
+          // Remove active from all
+          partyLinks.forEach((l) => {
+            l.classList.remove("active");
+          });
+
+          link.classList.add("active");
+          currentlyClickedPartyLink = link;
+
+          // Show action buttons
+          const actionButtons = document.getElementById("action-buttons");
+          actionButtons.style.display = "grid";
+        }
       });
     });
   }
 
+  // --- SHOW/HIDE ACTION BUTTONS ---
   function showActionButtons() {
-    const actionButtons = document.getElementById("action-buttons");
+    actionButtons.style.display = "grid";
+  }
 
-    if (actionButtons.style.display === "none") {
-      actionButtons.style.display = "grid";
-    } else {
-      actionButtons.style.display = "none";
+  // Handle clicks of the Action Buttons
+  const addCandidatesBtn = document.getElementById("add-candidates-btn");
+  const updateCandidatesBtn = document.getElementById("update-candidates-btn");
+  const deleteCandidatesBtn = document.getElementById("delete-candidates-btn");
+  const viewCandidatesBtn = document.getElementById("view-candidates-btn");
+
+  // Add Candidates Data
+  addCandidatesBtn.addEventListener("click", () => {
+    const partyData = getSelectedPartyData();
+    if (!partyData) return;
+
+    sessionStorage.setItem(
+      "selectedPartyData",
+      JSON.stringify(partyData)
+    );
+    loadContent("/public/admin/adminAddCandidates.html");
+  });
+
+  // Update Candidates Data
+  updateCandidatesBtn.addEventListener("click",()=>{
+    const partyData=getSelectedPartyData();
+    if(!partyData) return;
+
+    sessionStorage.setItem("selectedPartyData",JSON.stringify(partyData));
+    loadContent("/public/admin/adminUpdateCandidates.html");
+  });
+
+  // Delet Candidates Data
+  deleteCandidatesBtn.addEventListener("click",()=>{
+    const partyData=getSelectedPartyData();
+    if(!partyData) return;
+
+    sessionStorage.setItem("selectedPartyData",JSON.stringify(partyData));
+    loadContent("/public/admin/adminDeleteCandidates.html");
+  });
+
+  // View Cndidates
+  viewCandidatesBtn.addEventListener("click",()=>{
+    const partyData=getSelectedPartyData();
+    if(!partyData) return;
+
+    sessionStorage.setItem("selectedPartyData",JSON.stringify(partyData));
+    loadContent("/public/admin/adminViewCandidates.html");
+  });
+
+  // Common function to fetch selected party info
+  function getSelectedPartyData() {
+    if (currentlyClicked == null || currentlyClickedPartyLink == null) {
+      alert("Please select a valid election and party");
+      return null;
     }
+
+    const selectedPartyRow = currentlyClickedPartyLink.closest("tr");
+    if (!selectedPartyRow) {
+      alert("Could not locate the selected party row!");
+      return null;
+    }
+
+    const cells = selectedPartyRow.querySelectorAll("td");
+    if (cells.length < 7) {
+      alert("Party row does not contain the required columns!");
+      return null;
+    }
+
+    const electionId = cells[1].textContent.trim();
+    const electionName = cells[2].textContent.trim();
+    const partyID = cells[3].textContent.trim();
+    const partyName = cells[4].textContent.trim();
+    const leaderName = cells[5].textContent.trim();
+    // const tdTotalCandidates = parseInt(cells[6].textContent.trim(), 10);
+
+    if (!electionId || !electionName || !partyID || !partyName || !leaderName) {
+      alert("Invalid or incomplete data selected.");
+      return null;
+    }
+
+    return {
+      electionId,
+      electionName,
+      partyID,
+      partyName,
+      leaderName,
+      // tdTotalCandidates,
+    };
   }
 };
