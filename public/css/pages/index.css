@@ -18,7 +18,7 @@ html, body {
 */
 .hero-wrapper {
   min-height: 100vh;
-  background-image: url('/public/images/IndianFlag1.jpg'); 
+  background-image: url('/images/IndianFlag1.jpg'); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

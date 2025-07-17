@@ -1,0 +1,20 @@
+{
+  "name": "matdaan",
+  "version": "1.0.0",
+  "description": "> 🇮🇳 Empowering Digital Democracy using  Node.js + MySQL + HTML/CSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KishanSola104/Matdaan-EVoting-System.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KishanSola104/Matdaan-EVoting-System/issues"
+  },
+  "homepage": "https://github.com/KishanSola104/Matdaan-EVoting-System#readme"
+}

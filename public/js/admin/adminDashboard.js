@@ -1,7 +1,7 @@
 console.log("Hello Admin Dashboard");
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadContent("/public/admin/adminDashboardMain.html");
+  loadContent("/admin/adminDashboardMain.html");
 
   document
     .querySelectorAll(".admin-sidebar nav a, .admin-dropdown a")
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   const defaultLink = document.querySelector(
-    '.admin-sidebar nav a[href="/public/admin/adminDashboardMain.html"]'
+    '.admin-sidebar nav a[href="/admin/adminDashboardMain.html"]'
   );
   if (defaultLink) {
     defaultLink.classList.add("active");
@@ -50,49 +50,49 @@ function loadContent(url) {
       document.getElementById("main-content").innerHTML = html;
 
       if (url.includes("adminDashboardMain.html")) {
-        loadScript("/public/js/admin/adminDashboardMain.js", () => {
+        loadScript("/js/admin/adminDashboardMain.js", () => {
           if (window.initAdminDashboardMain) {
             window.initAdminDashboardMain();
           }
         });
       } else if (url.includes("adminElections.html")) {
-        loadScript("/public/js/admin/adminElections.js", () => {
+        loadScript("/js/admin/adminElections.js", () => {
           if (window.initAdminElections) {
             window.initAdminElections();
           }
         });
       } else if (url.includes("adminParties.html")) {
-        loadScript("/public/js/admin/adminParties.js", () => {
+        loadScript("/js/admin/adminParties.js", () => {
           if (window.initAdminParties) {
             window.initAdminParties();
           }
         });
       } else if (url.includes("adminAddParties.html")) {
-        loadScript("/public/js/admin/adminAddParties.js", () => {
+        loadScript("/js/admin/adminAddParties.js", () => {
           if (window.initAdminAddParties) {
             window.initAdminAddParties();
           }
         });
       } else if (url.includes("adminUpdateParties.html")) {
-        loadScript("/public/js/admin/adminUpdateParties.js", () => {
+        loadScript("/js/admin/adminUpdateParties.js", () => {
           if (window.initAdminUpdateParties) {
             window.initAdminUpdateParties();
           }
         });
       } else if (url.includes("adminViewParties.html")) {
-        loadScript("/public/js/admin/adminViewParties.js", () => {
+        loadScript("/js/admin/adminViewParties.js", () => {
           if (window.initAdminViewParties) {
             window.initAdminViewParties();
           }
         });
       } else if (url.includes("adminCandidates.html")) {
-        loadScript("/public/js/admin/adminCandidates.js", () => {
+        loadScript("/js/admin/adminCandidates.js", () => {
           if (window.initAdminCandidates) {
             window.initAdminCandidates();
           }
         });
       } else if (url.includes("adminAddCandidates.html")) {
-        loadScript("/public/js/admin/adminAddCandidates.js", () => {
+        loadScript("/js/admin/adminAddCandidates.js", () => {
           if (window.initAddCandidates) {
             window.initAddCandidates();
           }
@@ -117,7 +117,7 @@ document.getElementById("logout-link").addEventListener("click", function (e) {
   e.preventDefault();
   alert("Logging out...");
 
-  window.location.href = "/public/index.html";
+  window.location.href = "/index.html";
   localStorage.clear();
   sessionStorage.clear();
 });
