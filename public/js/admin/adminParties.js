@@ -72,7 +72,7 @@ window.initAdminParties = function () {
       sessionStorage.removeItem("selectedElection");
       // set The Current data for the election selected
       sessionStorage.setItem("selectedElection", JSON.stringify(electionData));
-      loadContent("/public/admin/adminAddParties.html");
+      loadContent("/admin/adminAddParties.html");
     } else {
       alert("Please select an election first.");
     }
@@ -110,7 +110,7 @@ window.initAdminParties = function () {
           "selectedElection",
           JSON.stringify(electionData)
         );
-        loadContent("/public/admin/adminUpdateParties.html");
+        loadContent("/admin/adminUpdateParties.html");
       } else {
         alert("Please select An Election");
       }
@@ -142,7 +142,7 @@ window.initAdminParties = function () {
       sessionStorage.removeItem("selectedElection");
       // set The Selected Election Data to The sesssion
       sessionStorage.setItem("selectedElection", JSON.stringify(electionData));
-      loadContent("/public/admin/adminViewParties.html");
+      loadContent("/admin/adminViewParties.html");
     } else {
       alert("Please Select An Election");
     }

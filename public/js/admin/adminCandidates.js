@@ -200,7 +200,7 @@ window.initAdminCandidates = function () {
       "selectedPartyData",
       JSON.stringify(partyData)
     );
-    loadContent("/public/admin/adminAddCandidates.html");
+    loadContent("/admin/adminAddCandidates.html");
   });
 
   // Update Candidates Data
@@ -209,7 +209,7 @@ window.initAdminCandidates = function () {
     if(!partyData) return;
 
     sessionStorage.setItem("selectedPartyData",JSON.stringify(partyData));
-    loadContent("/public/admin/adminUpdateCandidates.html");
+    loadContent("/admin/adminUpdateCandidates.html");
   });
 
   // Delet Candidates Data
@@ -218,7 +218,7 @@ window.initAdminCandidates = function () {
     if(!partyData) return;
 
     sessionStorage.setItem("selectedPartyData",JSON.stringify(partyData));
-    loadContent("/public/admin/adminDeleteCandidates.html");
+    loadContent("/admin/adminDeleteCandidates.html");
   });
 
   // View Cndidates
@@ -227,7 +227,7 @@ window.initAdminCandidates = function () {
     if(!partyData) return;
 
     sessionStorage.setItem("selectedPartyData",JSON.stringify(partyData));
-    loadContent("/public/admin/adminViewCandidates.html");
+    loadContent("/admin/adminViewCandidates.html");
   });
 
   // Common function to fetch selected party info
