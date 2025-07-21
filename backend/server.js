@@ -19,6 +19,36 @@ const server = http.createServer((req, res) => {
     pathname = "/index.html";
   }
 
+    //  API Route: Return districts based on selected state
+  if (pathname === "/api/districts" && req.method === "GET") {
+    const query = new URLSearchParams(parsedUrl.query);
+    const selectedState = query.get("state");
+
+    const dataPath = path.join(__dirname, "data", "districts.json");
+
+    fs.readFile(dataPath, "utf8", (err, jsonData) => {
+      if (err) {
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "Unable to read district data" }));
+        return;
+      }
+
+      try {
+        const districts = JSON.parse(jsonData);
+        const stateDistricts = districts[selectedState] || [];
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ districts: stateDistricts }));
+      } catch (parseError) {
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "Error parsing district data" }));
+      }
+    });
+
+    return; //  Important: stop further execution
+  }
+
+
   // GET file extension and resolve full path
   const ext = path.extname(pathname);
   const filePath = path.join(publicDir, pathname);

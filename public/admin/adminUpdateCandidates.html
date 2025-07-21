@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matdaan - Admin Update Candidate</title>
+  <link rel="stylesheet" href="/css/pages/adminAddCandidates.css" />
+</head>
+
+<body>
+
+  <main class="admin-main-section">
+    <h1>Update Candidate</h1>
+
+    <!-- Search Candidate by ID -->
+    <div class="form-group">
+      <label for="searchCandidateId">Enter Candidate ID to Update:</label>
+      <input type="text" id="searchCandidateId" name="searchCandidateId" placeholder="Enter Candidate ID" required />
+      <button type="button" id="searchCandidateBtn">Search</button>
+    </div>
+
+    <!-- Candidate Update Form (hidden by default) -->
+    <form id="updateCandidateForm" enctype="multipart/form-data" >
+
+      <!-- Candidate ID (Read-only) -->
+      <div class="form-group">
+        <label for="candidateId">Candidate ID:</label>
+        <input type="text" id="candidateId" name="candidateId" readonly />
+      </div>
+
+      <!-- Party ID (Read-only) -->
+      <div class="form-group">
+        <label for="partyId">Party ID:</label>
+        <input type="text" id="partyId" name="partyId" readonly />
+      </div>
+
+      <!-- Party Name (Read-only) -->
+      <div class="form-group">
+        <label for="partyName">Party Name:</label>
+        <input type="text" id="partyName" name="partyName" readonly />
+      </div>
+
+      <!-- Candidate Name -->
+      <div class="form-group">
+        <label for="candidateName">Candidate Name:</label>
+        <input type="text" id="candidateName" name="candidateName" placeholder="Enter Candidate Name" required />
+      </div>
+
+      <!-- State -->
+      <div class="form-group">
+        <label for="state">State:</label>
+        <select id="state" name="state" required></select>
+      </div>
+
+      <!-- District -->
+      <div class="form-group">
+        <label for="district">District:</label>
+        <select id="district" name="district" required></select>
+      </div>
+
+      <!-- Current Candidate Image -->
+      <div class="form-group">
+        <label>Current Candidate Image:</label>
+        <img id="currentCandidateImage" src="" alt="Current Candidate Image" width="120" height="120" />
+      </div>
+
+      <!-- Upload New Image -->
+      <div class="form-group">
+        <label for="candidateImage">Upload New Image:</label>
+        <input type="file" id="candidateImage" name="candidateImage" accept="image/*" />
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="form-group date-group">
+        <label>Date of Birth:</label>
+        <div class="date-group">
+          <select id="Year"></select>
+          <select id="Month"></select>
+          <select id="Day"></select>
+        </div>
+      </div>
+
+      <!-- Gender -->
+      <div class="form-group">
+        <label>Gender:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="Male" required /> Male</label>
+          <label><input type="radio" name="gender" value="Female" /> Female</label>
+          <label><input type="radio" name="gender" value="Other" /> Other</label>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Candidate Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter Email Address" required />
+      </div>
+
+      <!-- Mobile Number -->
+      <div class="form-group">
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="mobile" placeholder="Enter Mobile Number" pattern="[0-9]{10}" maxlength="10" required />
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="form-group button-group">
+        <button type="submit" id="updateCandidateBtn">Update Candidate</button>
+        <button type="reset" id="cancelBtn">Cancel</button>
+      </div>
+
+    </form>
+  </main>
+
+  <script src="/js/admin/adminUpdateCandidates.js"></script>
+</body>
+
+</html>

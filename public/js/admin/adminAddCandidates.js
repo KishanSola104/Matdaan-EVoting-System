@@ -55,24 +55,25 @@ window.initAddCandidates = function () {
   // Dropdown elements
   const stateDropdown = document.getElementById("state");
   const districtDropdown = document.getElementById("district");
-  const year = document.getElementById("Year");
-  const month = document.getElementById("Month");
-  const day = document.getElementById("Day");
+  const yearDropdown = document.getElementById("Year");
+  const monthDropdown = document.getElementById("Month");
+  const dayDropdown = document.getElementById("Day");
+
+
 
   // Set default labels
   setDropdownLabel(stateDropdown, "Select State");
   setDropdownLabel(districtDropdown, "Select District");
-  setDropdownLabel(year, "Year");
-  setDropdownLabel(month, "Month");
-  setDropdownLabel(day, "Day");
+  setDropdownLabel(yearDropdown, "Year");
+  setDropdownLabel(monthDropdown, "Month");
+  setDropdownLabel(dayDropdown, "Day");
 
-  // fill up the drop down for The Year , Month and Day
-  for (let y = 1950; y <= 2005; y++) {
-    const option = document.createElement("option");
-    option.value = y;
-    option.textContent = y;
-    year.appendChild(option);
-  }
+    // Populate states
+  indianStatesAndUTs.forEach((state) => {
+    stateDropdown.appendChild(new Option(state, state));
+  });
+
+  indianStatesAndUTs.sort();
 
   const months = [
     "January",
@@ -89,41 +90,68 @@ window.initAddCandidates = function () {
     "December",
   ];
 
+  // fill up the drop down for The Year , Month and Day
+  for (let y = 1950; y <= 2005; y++) {
+    const option = document.createElement("option");
+    option.value = y;
+    option.textContent = y;
+    yearDropdown.appendChild(option);
+  }
+
+  // fufill The Months
   months.forEach((m, index) => {
     const option = document.createElement("option");
     option.value = index + 1; // Optional: use 1-12
     option.textContent = m;
-    month.appendChild(option);
+    monthDropdown.appendChild(option);
   });
 
-  // Populate states
-  indianStatesAndUTs.forEach((state) => {
-    stateDropdown.appendChild(new Option(state, state));
-  });
+  // populate The days accroding to The selected year and month 
+  function updateDays(){
+    const year=parseInt(yearDropdown.value);
+    const month=parseInt(monthDropdown.value);
 
-  // Fetch districts based on selected state
-  stateDropdown.addEventListener("change", function () {
-    const selectedState = this.value;
-    console.log("State selected:", selectedState);
+    if(!year || !month) return;
 
-    if (selectedState) {
-      fetch(`/api/districts?state=${encodeURIComponent(selectedState)}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log("Districts fetched:", data);
-          populateDistricts(data.districts || []);
-        })
-        .catch((error) => {
-          console.error("Error loading districts:", error);
-          clearDistrictDropdown();
-        });
-    } else {
-      clearDistrictDropdown();
+    // get The Number of Days in each Month for the selected Year 
+    const daysInMonth=new Date(year,month,0).getDate();
+
+    // Clear previous options
+  //dayDropdown.innerHTML = "";
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const option = document.createElement("option");
+    option.value = d;
+    option.textContent = d;
+    dayDropdown.appendChild(option);
+  }
+
+  }
+
+  yearDropdown.addEventListener("change",updateDays);
+  monthDropdown.addEventListener("change",updateDays);
+
+
+   stateDropdown.addEventListener("change", async () => {
+    const selectedState = stateDropdown.value;
+
+    // Clear previous districts
+    districtDropdown.innerHTML = '<option value="">Select District</option>';
+
+    if (!selectedState) return;
+
+    try {
+      const res = await fetch(`/api/districts?state=${encodeURIComponent(selectedState)}`);
+      const data = await res.json();
+
+      data.districts.forEach((district) => {
+        const option = document.createElement("option");
+        option.value = district;
+        option.textContent = district;
+        districtDropdown.appendChild(option);
+      });
+    } catch (err) {
+      console.error("Error fetching districts:", err);
     }
   });
 
@@ -133,18 +161,5 @@ window.initAddCandidates = function () {
     labelOption.value = "";
     labelOption.textContent = labelText;
     selectElement.appendChild(labelOption);
-  }
-
-  function populateDistricts(districts) {
-    districtDropdown.innerHTML = "";
-    setDropdownLabel(districtDropdown, "Select District");
-    districts.forEach((district) => {
-      districtDropdown.appendChild(new Option(district, district));
-    });
-  }
-
-  function clearDistrictDropdown() {
-    districtDropdown.innerHTML = "";
-    setDropdownLabel(districtDropdown, "Select District");
   }
 };

@@ -97,6 +97,12 @@ function loadContent(url) {
             window.initAddCandidates();
           }
         });
+      }else if(url.includes("adminUpdateCandidates.html")){
+        loadScript("/js/admin/adminUpdateCandidates.js",()=>{
+          if(window.initUpdateCandidates){
+            window.initUpdateCandidates();
+          }
+        });
       }
     })
     .catch((err) => {

@@ -53,12 +53,31 @@ body {
   outline: none;
 }
 
+/* Readonly input style */
+input[readonly] {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
 /* File input */
 input[type="file"] {
   padding: 8px;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 6px;
+}
+
+/* Image preview box */
+.image-preview {
+  margin-top: 10px;
+}
+
+.image-preview img {
+  max-width: 180px;
+  max-height: 180px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  object-fit: cover;
 }
 
 /* Date group styling */
@@ -140,6 +159,10 @@ body.dark-mode input[type="file"] {
   background: #3a3f5c;
   color: #f1f1f1;
   border: 1px solid #555;
+}
+
+body.dark-mode .image-preview img {
+  border-color: #555;
 }
 
 body.dark-mode .button-group button {
