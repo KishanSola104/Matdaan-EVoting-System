@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matdaan - Admin Voters Page</title>
+    <link rel="stylesheet" href="/css/pages/adminVoters.css">
+</head>
+
+<body>
+    <main class="admin-main-section">
+        <h1>Manage Voters</h1>
+
+        <form id="manageVotersForm">
+
+            <!-- State -->
+            <div class="form-group">
+                <label for="state">State:</label>
+                <select id="state" name="state" required>
+                </select>
+            </div>
+
+            <!-- District (Dropdown) -->
+            <div class="form-group">
+                <label for="district">District:</label>
+                <select id="district" name="district" required>
+                </select>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="form-group button-group">
+                <button type="button" id="addVotersBtn">Add Voters</button>
+                <button type="button" id="updateVotersBtn">Update Voters</button>
+                <button type="button" id="deleteVotersBtn">Delete Voters</button>
+                <button type="button" id="viewVotersBtn">View Voters</button>
+                <button type="reset" id="cancelBtn">Cancel</button>
+            </div>
+
+        </form>
+    </main>
+    <script src="/js/admin/adminVoters.js"></script>
+</body>
+
+</html>

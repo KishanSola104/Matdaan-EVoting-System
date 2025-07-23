@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matdaan - Admin Update Candidate</title>
-  <link rel="stylesheet" href="/css/pages/adminUpdateCandidates.css" />
+  <title>Matdaan - Admin Delete Candidate</title>
+  <link rel="stylesheet" href="/css/pages/adminViewCandidates.css" />
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
@@ -13,11 +13,11 @@
 <body>
 
   <main class="admin-main-section">
-    <h1>Update Candidate</h1>
+    <h1>View Candidate</h1>
 
     <!-- Search Candidate by ID -->
     <div class="form-group search-wrapper">
-      <label for="searchCandidateId">Enter Candidate ID to Update:</label>
+      <label for="searchCandidateId">Enter Candidate ID to View Candidate Data:</label>
       <div class="search-container">
         <input type="text" id="searchCandidateId" name="searchCandidateId" placeholder="Enter Candidate ID" required />
         <button id="searchCandidateBtn" class="search-icon" type="button">
@@ -27,8 +27,8 @@
     </div>
 
 
-    <!-- Candidate Update Form (hidden by default) -->
-    <form id="updateCandidateForm" enctype="multipart/form-data">
+    <!-- Candidate Delete Form (hidden by default) -->
+    <form id="viewCandidateForm" enctype="multipart/form-data">
 
       <!-- Candidate ID (Read-only) -->
       <div class="form-group">
@@ -51,19 +51,19 @@
       <!-- Candidate Name -->
       <div class="form-group">
         <label for="candidateName">Candidate Name:</label>
-        <input type="text" id="candidateName" name="candidateName" placeholder="Enter Candidate Name" required />
+        <input type="text" id="candidateName" name="candidateName" readonly />
       </div>
 
       <!-- State -->
       <div class="form-group">
         <label for="state">State:</label>
-        <select id="state" name="state" required></select>
+        <select id="state" name="state"  readonly></select>
       </div>
 
       <!-- District -->
       <div class="form-group">
         <label for="district">District:</label>
-        <select id="district" name="district" required></select>
+        <select id="district" name="district"  readonly></select>
       </div>
 
       <!-- Current Candidate Image -->
@@ -72,11 +72,7 @@
         <img id="currentCandidateImage" src="" alt="Current Candidate Image" width="120" height="120" />
       </div>
 
-      <!-- Upload New Image -->
-      <div class="form-group">
-        <label for="candidateImage">Upload New Image:</label>
-        <input type="file" id="candidateImage" name="candidateImage" accept="image/*" />
-      </div>
+   
 
       <!-- Date of Birth -->
       <div class="form-group date-group">
@@ -92,7 +88,7 @@
       <div class="form-group">
         <label>Gender:</label>
         <div class="radio-group">
-          <label><input type="radio" name="gender" value="Male" required /> Male</label>
+          <label><input type="radio" name="gender" value="Male"  /> Male</label>
           <label><input type="radio" name="gender" value="Female" /> Female</label>
           <label><input type="radio" name="gender" value="Other" /> Other</label>
         </div>
@@ -101,26 +97,25 @@
       <!-- Email -->
       <div class="form-group">
         <label for="email">Candidate Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter Email Address" required />
+        <input type="email" id="email" name="email"  readonly />
       </div>
 
       <!-- Mobile Number -->
       <div class="form-group">
         <label for="mobile">Mobile Number:</label>
-        <input type="tel" id="mobile" name="mobile" placeholder="Enter Mobile Number" pattern="[0-9]{10}" maxlength="10"
-          required />
+        <input type="tel" id="mobile" name="mobile"  pattern="[0-9]{10}" maxlength="10"
+           readonly />
       </div>
 
       <!-- Action Buttons -->
       <div class="form-group button-group">
-        <button type="submit" id="updateCandidateBtn">Update Candidate</button>
-        <button type="reset" id="cancelBtn">Cancel</button>
+        <button type="reset" id="cancelBtn">Clear</button>
       </div>
 
     </form>
   </main>
 
-  <script src="/js/admin/adminUpdateCandidates.js"></script>
+  <script src="/js/admin/adminViewCandidates.js"></script>
 </body>
 
 </html>

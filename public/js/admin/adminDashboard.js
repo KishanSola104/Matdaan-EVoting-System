@@ -38,77 +38,79 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+const pageScriptMap = {
+  "adminDashboardMain.html": {
+    src: "/js/admin/adminDashboardMain.js",
+    init: "initAdminDashboardMain",
+  },
+  "adminElections.html": {
+    src: "/js/admin/adminElections.js",
+    init: "initAdminElections",
+  },
+  "adminParties.html": {
+    src: "/js/admin/adminParties.js",
+    init: "initAdminParties",
+  },
+  "adminAddParties.html": {
+    src: "/js/admin/adminAddParties.js",
+    init: "initAdminAddParties",
+  },
+  "adminUpdateParties.html": {
+    src: "/js/admin/adminUpdateParties.js",
+    init: "initAdminUpdateParties",
+  },
+  "adminViewParties.html": {
+    src: "/js/admin/adminViewParties.js",
+    init: "initAdminViewParties",
+  },
+  "adminCandidates.html": {
+    src: "/js/admin/adminCandidates.js",
+    init: "initAdminCandidates",
+  },
+  "adminAddCandidates.html": {
+    src: "/js/admin/adminAddCandidates.js",
+    init: "initAddCandidates",
+  },
+  "adminUpdateCandidates.html": {
+    src: "/js/admin/adminUpdateCandidates.js",
+    init: "initUpdateCandidates",
+  },
+  "adminDeleteCandidates.html": {
+    src: "/js/admin/adminDeleteCandidates.js",
+    init: "initDeleteCandidates",
+  },
+  "adminViewCandidates.html": {
+    src: "/js/admin/adminViewCandidates.js",
+    init: "initViewCandidates",
+  },
+  "adminVoters.html":{
+    src:"/js/admin/adminVoters.js",
+    init:"initAdminVoters",
+  },
+};
+
 function loadContent(url) {
   fetch(url)
     .then((response) => {
-      if (!response.ok) {
-        throw new Error("Page not found");
-      }
+      if (!response.ok) throw new Error("Page not found");
       return response.text();
     })
     .then((html) => {
       document.getElementById("main-content").innerHTML = html;
-
-      if (url.includes("adminDashboardMain.html")) {
-        loadScript("/js/admin/adminDashboardMain.js", () => {
-          if (window.initAdminDashboardMain) {
-            window.initAdminDashboardMain();
-          }
-        });
-      } else if (url.includes("adminElections.html")) {
-        loadScript("/js/admin/adminElections.js", () => {
-          if (window.initAdminElections) {
-            window.initAdminElections();
-          }
-        });
-      } else if (url.includes("adminParties.html")) {
-        loadScript("/js/admin/adminParties.js", () => {
-          if (window.initAdminParties) {
-            window.initAdminParties();
-          }
-        });
-      } else if (url.includes("adminAddParties.html")) {
-        loadScript("/js/admin/adminAddParties.js", () => {
-          if (window.initAdminAddParties) {
-            window.initAdminAddParties();
-          }
-        });
-      } else if (url.includes("adminUpdateParties.html")) {
-        loadScript("/js/admin/adminUpdateParties.js", () => {
-          if (window.initAdminUpdateParties) {
-            window.initAdminUpdateParties();
-          }
-        });
-      } else if (url.includes("adminViewParties.html")) {
-        loadScript("/js/admin/adminViewParties.js", () => {
-          if (window.initAdminViewParties) {
-            window.initAdminViewParties();
-          }
-        });
-      } else if (url.includes("adminCandidates.html")) {
-        loadScript("/js/admin/adminCandidates.js", () => {
-          if (window.initAdminCandidates) {
-            window.initAdminCandidates();
-          }
-        });
-      } else if (url.includes("adminAddCandidates.html")) {
-        loadScript("/js/admin/adminAddCandidates.js", () => {
-          if (window.initAddCandidates) {
-            window.initAddCandidates();
-          }
-        });
-      }else if(url.includes("adminUpdateCandidates.html")){
-        loadScript("/js/admin/adminUpdateCandidates.js",()=>{
-          if(window.initUpdateCandidates){
-            window.initUpdateCandidates();
-          }
-        });
+      for (const key in pageScriptMap) {
+        if (url.includes(key)) {
+          const { src, init } = pageScriptMap[key];
+          loadScript(src, () => {
+            if (window[init]) window[init]();
+          });
+          break;
+        }
       }
     })
     .catch((err) => {
       document.getElementById("main-content").innerHTML =
         "<p>Error loading page.</p>";
-      console.error(err);
+      console.error("Error loading content:", err);
     });
 }
 

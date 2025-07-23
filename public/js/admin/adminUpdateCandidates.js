@@ -179,4 +179,25 @@ window.initUpdateCandidates = function () {
       console.error("Error in fetching districts: ", error);
     }
   });
+
+  // Search logic
+  const candidateIdInput = document.getElementById("searchCandidateId");
+  const searchButton = document.getElementById("searchCandidateBtn");
+
+  function handleSearch() {
+    const candidateID = candidateIdInput.value.trim();
+    if (!candidateID) {
+      alert("Please Enter a Valid Candidate ID");
+      return;
+    }
+
+    // fetchCandidateData(candidateID);
+  }
+
+  searchButton.addEventListener("click", handleSearch);
+  candidateIdInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  });
 };
