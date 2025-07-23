@@ -14,14 +14,18 @@
     <h1>Update Candidate</h1>
 
     <!-- Search Candidate by ID -->
-    <div class="form-group">
+    <div class="form-group search-wrapper">
       <label for="searchCandidateId">Enter Candidate ID to Update:</label>
-      <input type="text" id="searchCandidateId" name="searchCandidateId" placeholder="Enter Candidate ID" required />
-      <button type="button" id="searchCandidateBtn">Search</button>
+      <div class="search-container">
+        <input type="text" id="searchCandidateId" name="searchCandidateId" placeholder="Enter Candidate ID" required />
+        <span id="searchCandidateIcon" class="search-icon">
+          🔍
+        </span>
+      </div>
     </div>
 
     <!-- Candidate Update Form (hidden by default) -->
-    <form id="updateCandidateForm" enctype="multipart/form-data" >
+    <form id="updateCandidateForm" enctype="multipart/form-data">
 
       <!-- Candidate ID (Read-only) -->
       <div class="form-group">
@@ -100,7 +104,8 @@
       <!-- Mobile Number -->
       <div class="form-group">
         <label for="mobile">Mobile Number:</label>
-        <input type="tel" id="mobile" name="mobile" placeholder="Enter Mobile Number" pattern="[0-9]{10}" maxlength="10" required />
+        <input type="tel" id="mobile" name="mobile" placeholder="Enter Mobile Number" pattern="[0-9]{10}" maxlength="10"
+          required />
       </div>
 
       <!-- Action Buttons -->
