@@ -12,14 +12,42 @@ window.initAdminVoters = function () {
   const cancelBtn = document.getElementById("cancelBtn");
 
   const indianStatesAndUTs = [
-    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
-    "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka",
-    "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya",
-    "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim",
-    "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand",
-    "West Bengal", "Andaman and Nicobar Islands", "Chandigarh",
-    "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Jammu and Kashmir",
-    "Ladakh", "Lakshadweep", "Puducherry"
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "West Bengal",
+    "Andaman and Nicobar Islands",
+    "Chandigarh",
+    "Dadra and Nagar Haveli and Daman and Diu",
+    "Delhi",
+    "Jammu and Kashmir",
+    "Ladakh",
+    "Lakshadweep",
+    "Puducherry",
   ].sort();
 
   // Hide buttons initially
@@ -40,7 +68,7 @@ window.initAdminVoters = function () {
   resetDropdown(stateDropdown, "Select State");
   resetDropdown(districtDropdown, "Select District");
 
-  indianStatesAndUTs.forEach(state => {
+  indianStatesAndUTs.forEach((state) => {
     const opt = document.createElement("option");
     opt.value = state;
     opt.textContent = state;
@@ -58,8 +86,11 @@ window.initAdminVoters = function () {
     }
 
     try {
-      const response = await fetch(`/api/districts?state=${encodeURIComponent(selectedState)}`);
-      if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+      const response = await fetch(
+        `/api/districts?state=${encodeURIComponent(selectedState)}`
+      );
+      if (!response.ok)
+        throw new Error(`HTTP error! Status: ${response.status}`);
 
       const data = await response.json();
 
@@ -72,13 +103,12 @@ window.initAdminVoters = function () {
         return;
       }
 
-      data.districts.forEach(district => {
+      data.districts.forEach((district) => {
         const opt = document.createElement("option");
         opt.value = district;
         opt.textContent = district;
         districtDropdown.appendChild(opt);
       });
-
     } catch (err) {
       console.error("Failed to load districts:", err.message);
       alert("Failed to load districts. Please try again.");
@@ -103,7 +133,7 @@ window.initAdminVoters = function () {
     resetDropdown(districtDropdown, "Select District");
 
     // Repopulate state options
-    indianStatesAndUTs.forEach(state => {
+    indianStatesAndUTs.forEach((state) => {
       const opt = document.createElement("option");
       opt.value = state;
       opt.textContent = state;
@@ -113,5 +143,55 @@ window.initAdminVoters = function () {
     buttonGroup.style.display = "none";
   });
 
-  // Ready to add more functionality to other buttons here...
+  addVotersBtn.addEventListener("click", () => {
+  const selectedStateDistrict = getSessionValues();
+  if (!selectedStateDistrict) return; 
+
+  sessionStorage.setItem(
+    "selectedStateDistrict",
+    JSON.stringify(selectedStateDistrict)
+  );
+
+  loadContent("/admin/adminAddVoters.html");
+});
+
+updateVotersBtn.addEventListener("click",()=>{
+  const selectedStateDistrict=getSessionValues();
+  if(!selectedStateDistrict) return;
+
+  sessionStorage.setItem("selectedStateDistrict",JSON.stringify(selectedStateDistrict));
+
+  loadContent("/admin/adminUpdateVoters.html");
+});
+
+deleteVotersBtn.addEventListener("click",()=>{
+ const selectedStateDistrict=getSessionValues();
+  if(!selectedStateDistrict) return;
+
+  sessionStorage.setItem("selectedStateDistrict",JSON.stringify(selectedStateDistrict));
+
+  loadContent("/admin/adminDeleteVoters.html");
+});
+
+viewVotersBtn.addEventListener("click",()=>{
+ const selectedStateDistrict=getSessionValues();
+  if(!selectedStateDistrict) return;
+
+  sessionStorage.setItem("selectedStateDistrict",JSON.stringify(selectedStateDistrict));
+
+  loadContent("/admin/adminViewVoters.html");
+});
+
+// function to get the selected state and district
+  function getSessionValues() {
+  const selectedState = stateDropdown.value;
+  const selectedDistrict = districtDropdown.value;
+  if (!selectedState || !selectedDistrict) {
+    alert("Please select both state and district before adding voters");
+    return;
+  }
+  return { state: selectedState, district: selectedDistrict };
+}
+
+  
 };

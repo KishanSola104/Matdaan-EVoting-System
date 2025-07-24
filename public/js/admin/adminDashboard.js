@@ -83,9 +83,17 @@ const pageScriptMap = {
     src: "/js/admin/adminViewCandidates.js",
     init: "initViewCandidates",
   },
-  "adminVoters.html":{
-    src:"/js/admin/adminVoters.js",
-    init:"initAdminVoters",
+  "adminVoters.html": {
+    src: "/js/admin/adminVoters.js",
+    init: "initAdminVoters",
+  },
+  "adminAddVoters.html": {
+    src: "/js/admin/adminAddVoters.js",
+    init: "initAddVoters",
+  },
+  "adminUpdateVoters.html": {
+    src: "/js/admin/adminUpdateVoters.js",
+    init: "initUpdateVoters",
   },
 };
 

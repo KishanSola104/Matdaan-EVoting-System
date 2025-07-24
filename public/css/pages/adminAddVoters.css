@@ -1,0 +1,160 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Main section */
+.admin-main-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #cfc6c6;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.admin-main-section h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #505458;
+}
+
+/* Form group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #34495e;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #fff;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* File input */
+input[type="file"] {
+  padding: 8px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Date group styling */
+.form-group.date-group {
+  display: block;
+}
+
+.form-group.date-group .date-group {
+  display: flex;
+  gap: 15px;
+}
+
+.form-group.date-group .date-group select {
+  flex: 1;
+}
+
+/* Gender radio group */
+.radio-group {
+  display: flex;
+  gap: 20px;
+  padding-top: 5px;
+}
+
+.radio-group label {
+  font-weight: normal;
+  color: #333;
+}
+
+/* Button group */
+.button-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.button-group button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.button-group button:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Cancel button styling */
+.button-group button#cancelVoterBtn {
+  background: #dc3545;
+}
+
+.button-group button#cancelVoterBtn:hover {
+  background: #a71d2a;
+}
+
+/* Dark mode support */
+body.dark-mode {
+  background-color: #1e1e2f;
+  color: #f1f1f1;
+}
+
+body.dark-mode .admin-main-section {
+  background: #2c2f48;
+}
+
+body.dark-mode .form-group label,
+body.dark-mode .radio-group label {
+  color: #f1f1f1;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode input[type="file"] {
+  background: #3a3f5c;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+body.dark-mode .button-group button {
+  background: #4e5de6;
+}
+
+body.dark-mode .button-group button:hover {
+  background: #2c3cb3;
+}
+
+body.dark-mode .button-group button#cancelVoterBtn {
+  background: #e63946;
+}
+
+body.dark-mode .button-group button#cancelVoterBtn:hover {
+  background: #a71d2a;
+}
