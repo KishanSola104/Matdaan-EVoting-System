@@ -1,6 +1,5 @@
 window.initUpdateVoters = function () {
 
-
   // get the selected state and district from the session storage
   const selectedStateDistrict = JSON.parse(
     sessionStorage.getItem("selectedStateDistrict")

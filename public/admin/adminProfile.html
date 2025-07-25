@@ -1,13 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Profile</title>
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/pages/adminProfile.css" />
 </head>
 <body>
-    <main style="margin-top: 150px; color: black; font-size: larger; font-weight: bolder;">
-        <h1>Heleo Admin Profiel</h1>
-    </main>
+
+<main class="admin-profile-container">
+  <h2 class="section-title">Admin Information</h2>
+  <hr />
+
+  <!-- Buttons -->
+  <div id="navigate-buttons-container">
+    <button><i class="fas fa-user"></i> My Account</button>
+    <button><i class="fas fa-lock"></i> Reset Password</button>
+    <button><i class="fas fa-sign-out-alt"></i> Logout</button>
+  </div>
+  <hr />
+
+  <!-- Profile Section -->
+  <div class="profile-box">
+    <div class="profile-image-section">
+      <img src="/images/user.png" alt="Admin Image" class="profile-image" />
+      <h3 class="admin-name">Kishan</h3>
+    </div>
+
+    <div class="profile-info-section">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Name:</label>
+          <input type="text" value="Kishan" readonly />
+        </div>
+        <div class="form-group">
+          <label>Gender:</label>
+          <input type="text" value="Male" readonly />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="text" value="kishansolanki104@gmail.com" readonly />
+        </div>
+        <div class="form-group">
+          <label>Mobile No:</label>
+          <input type="text" value="9662347518" readonly />
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
 </body>
 </html>

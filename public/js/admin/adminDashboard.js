@@ -102,7 +102,7 @@ const pageScriptMap = {
   "adminViewVoters.html":{
     src:"/js/admin/adminViewVoters.js",
     init:"initViewVoters",
-  },
+  }
 };
 
 function loadContent(url) {
