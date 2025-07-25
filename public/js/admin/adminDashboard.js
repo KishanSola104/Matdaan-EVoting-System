@@ -95,6 +95,14 @@ const pageScriptMap = {
     src: "/js/admin/adminUpdateVoters.js",
     init: "initUpdateVoters",
   },
+  "adminDeleteVoters.html":{
+    src:"/js/admin/adminDeleteVoters.js",
+    init:"initDeleteVoters",
+  },
+  "adminViewVoters.html":{
+    src:"/js/admin/adminViewVoters.js",
+    init:"initViewVoters",
+  },
 };
 
 function loadContent(url) {

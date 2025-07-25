@@ -1,14 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Update Voters - Matdaan</title>
-    <link rel="stylesheet" href="/css/pages/adminUpdateVoters.css">
-</head>
-<body>
-    <h1>Update Voters</h1>
 
-    <script src="/js/admin/adminUpdateVoters.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matdaan - Admin Update Voter</title>
+  <link rel="stylesheet" href="/css/pages/adminUpdateVoters.css" />
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <main class="admin-main-section">
+    <h1>Update Voter</h1>
+
+    <!-- Search Voter by ID -->
+    <div class="form-group search-wrapper">
+      <label for="searchVoterId">Enter Voter ID to Update:</label>
+      <div class="search-container">
+        <input type="text" id="searchVoterId" name="searchVoterId" placeholder="Enter Voter ID" required />
+        <button id="searchVoterBtn" class="search-icon" type="button">
+          <i class="fas fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Voter Update Form (hidden by default until searched) -->
+    <form id="updateVoterForm" enctype="multipart/form-data">
+
+      <!-- Voter ID (Read-only) -->
+      <div class="form-group">
+        <label for="voterId">Voter ID:</label>
+        <input type="text" id="voterId" name="voterId" readonly />
+      </div>
+
+      <!-- Aadhar Number -->
+      <div class="form-group">
+        <label for="aadharNumber">Aadhar Number:</label>
+        <input type="text" id="aadharNumber" name="aadharNumber" maxlength="12"
+          pattern="\d{12}"  readonly/>
+      </div>
+
+      <!-- Voter Name -->
+      <div class="form-group">
+        <label for="voterName">Voter Name:</label>
+        <input type="text" id="voterName" name="voterName" placeholder="Enter Voter Name" required />
+      </div>
+
+      <!-- Gender -->
+      <div class="form-group">
+        <label>Gender:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="Male" required /> Male</label>
+          <label><input type="radio" name="gender" value="Female" /> Female</label>
+          <label><input type="radio" name="gender" value="Other" /> Other</label>
+        </div>
+      </div>
+
+      <!-- State (Read-only) -->
+      <div class="form-group">
+        <label for="voterState">State:</label>
+        <input type="text" id="voterState" name="voterState" readonly />
+      </div>
+
+      <!-- District (Read-only) -->
+      <div class="form-group">
+        <label for="voterDistrict">District:</label>
+        <input type="text" id="voterDistrict" name="voterDistrict" readonly />
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="form-group date-group">
+        <label>Date of Birth:</label>
+        <div class="date-group">
+          <select id="Year" name="Year" required></select>
+          <select id="Month" name="Month" required></select>
+          <select id="Day" name="Day" required></select>
+        </div>
+      </div>
+
+      <!-- Mobile Number -->
+      <div class="form-group">
+        <label for="voterMobile">Mobile Number:</label>
+        <input type="tel" id="voterMobile" name="voterMobile" placeholder="Enter Mobile Number" pattern="[0-9]{10}"
+          maxlength="10" required />
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="voterEmail">Email:</label>
+        <input type="email" id="voterEmail" name="voterEmail" placeholder="Enter Email Address" required />
+      </div>
+
+      <!-- Current Voter Image -->
+      <div class="form-group">
+        <label>Current Voter Image:</label>
+        <img id="currentVoterImage" src="" alt="Current Voter Image" width="120" height="120" />
+      </div>
+
+      <!-- Upload New Image -->
+      <div class="form-group">
+        <label for="voterImage">Upload New Image:</label>
+        <input type="file" id="voterImage" name="voterImage" accept="image/*" />
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="form-group button-group">
+        <button type="submit" id="updateVoterBtn">Update Voter</button>
+        <button type="reset" id="cancelBtn">Cancel</button>
+      </div>
+
+    </form>
+  </main>
+
+  <script src="/js/admin/adminUpdateVoters.js"></script>
 </body>
+
 </html>
