@@ -102,6 +102,14 @@ const pageScriptMap = {
   "adminViewVoters.html":{
     src:"/js/admin/adminViewVoters.js",
     init:"initViewVoters",
+  },
+  "adminProfile.html":{
+    src:"/js/admin/adminProfile.js",
+    init:"initAdminProfile",
+  },
+  "adminResetPassword.html":{
+    src:"/js/admin/adminResetPassword.js",
+    init:"initAdminResetPassowrd",
   }
 };
 
