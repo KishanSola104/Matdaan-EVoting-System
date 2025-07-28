@@ -2,6 +2,7 @@ console.log("Hello Admin Dashboard");
 
 document.addEventListener("DOMContentLoaded", () => {
   loadContent("/admin/adminDashboardMain.html");
+  
 
   document
     .querySelectorAll(".admin-sidebar nav a, .admin-dropdown a")

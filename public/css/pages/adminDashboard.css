@@ -86,7 +86,7 @@ body {
   object-fit: cover;
 }
 
-.admin-header .admin-profile .admin-name {
+.admin-header .admin-profile .admin-name  {
   font-weight: 600;
 }
 
@@ -212,3 +212,6 @@ body {
   font-size: 0.85rem;
   height: 35px;
 }
+
+
+/* admin image wrapper  dropdown */
