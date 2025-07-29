@@ -18,10 +18,11 @@
 
 <body>
     <main class="login-wrapper" role="main">
-        <form action="#" method="post" class="login-form">
+        <form action="#" method="post" class="login-form" autocomplete="off">
+
             <!-- Left Section -->
             <div class="left-box">
-                <h1 class="site-title">
+                <h1 class="site-title" aria-label="Matdaan">
                     <span class="orange">M</span>
                     <span class="whiteblue">a</span>
                     <span class="green">t</span>
@@ -30,25 +31,36 @@
                     <span class="green">a</span>
                     <span class="orange">n</span>
                 </h1>
-                <span style="color: black;">Unity in diversity is the true essence of India!</span>
+                <p style="color: black;">Unity in diversity is the true essence of India!</p>
             </div>
-
 
             <!-- Right Section -->
             <div class="right-box">
                 <div class="login-container">
                     <h2>Login</h2>
+
+                    <!-- Voter ID Input -->
                     <div class="form-group">
+                        <label for="voterId">Voter ID</label>
                         <input type="text" id="voterId" name="voterId" placeholder="Enter your Voter ID"
                             autocomplete="off" required />
+                        <span class="error-message" id="voterIdError"></span>
                     </div>
+
+                    <!-- Password Input -->
                     <div class="form-group">
-                        <input type="text" id="otp" name="otp" placeholder="Enter OTP" autocomplete="one-time-code"
-                            required />
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password"
+                            autocomplete="off" required />
+                        <span class="error-message" id="passwordError"></span>
                     </div>
+
+                    <!-- Login Button -->
                     <button type="submit" class="login-btn">Login</button>
+
+                    <!-- Links -->
                     <div class="links">
-                        <a href="#" class="forgot-password">Forgot Password?</a>
+                        <a href="/voter/forgot-password.html" class="forgot-password">Forgot Password?</a>
                         <span>or</span>
                         <a href="/voter/register.html" class="signup-link">Create New Account</a>
                     </div>

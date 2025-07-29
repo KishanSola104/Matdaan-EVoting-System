@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matdaan: New Voter Registration</title>
+    <link rel="stylesheet" href="/css/pages/register.css">
+</head>
+
+<body>
+    <header>
+        <h1>Matdaan</h1>
+    </header>
+
+    <!-- New Voter Registration Form -->
+    <main class="register-wrapper" role="main">
+        <h2>Register to Matdaan</h2>
+
+        <form action="#" method="post" class="register-form" autocomplete="off">
+
+            <!-- Voter ID Input Field -->
+            <div class="form-group">
+                <label for="voterId">Voter ID</label>
+                <input type="text" id="voterId" name="voterId" placeholder="Enter your voter ID" autocomplete="off"
+                    required />
+                <span class="error-message" id="voterIdError"></span>
+            </div>
+
+            <!-- Name Input Field -->
+            <div class="form-group">
+                <label for="voterName">Name</label>
+                <input type="text" id="voterName" name="voterName" placeholder="Enter your name as voter ID" autocomplete="off"
+                    required />
+                <span class="error-message" id="voterNameError"></span>
+            </div>
+
+            <!-- State Dropdown -->
+            <div class="form-group">
+                <label for="state">State</label>
+                <select id="state" name="state" required>
+                    <option value="">Select State</option>
+                </select>
+                <span class="error-message" id="stateError"></span>
+            </div>
+
+            <!-- District Dropdown -->
+            <div class="form-group">
+                <label for="district">District</label>
+                <select id="district" name="district" required>
+                    <option value="">Select District</option>
+                </select>
+                <span class="error-message" id="districtError"></span>
+            </div>
+
+            <!-- Registered Mobile Number Input Field -->
+            <div class="form-group">
+                <label for="mobileNumber">Registered Mobile Number</label>
+                <input type="tel" id="mobileNumber" name="mobileNumber"
+                    placeholder="Enter your registered mobile number" autocomplete="off" maxlength="10"
+                    pattern="[0-9]{10}" required />
+                <span class="error-message" id="mobileNumberError"></span>
+            </div>
+
+            <!-- Email Input Field -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" autocomplete="off"
+                    required />
+                <span class="error-message" id="emailError"></span>
+            </div>
+
+            <!-- Choose Gender -->
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <div class="gender-options">
+                    <label>
+                        <input type="radio" name="gender" value="male" required> Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="female"> Female
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="other"> Other
+                    </label>
+                </div>
+                <span class="error-message" id="genderError"></span>
+            </div>
+
+            <!-- Date of Birth Dropdown -->
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <div class="dob-container">
+                    <select id="dobYear" name="dobYear" required>
+                        <option value="">Year</option>
+                    </select>
+                    <select id="dobMonth" name="dobMonth" required>
+                        <option value="">Month</option>
+                    </select>
+                    <select id="dobDay" name="dobDay" required>
+                        <option value="">Day</option>
+                    </select>
+                </div>
+                <span class="error-message" id="dobError"></span>
+            </div>
+
+            <!-- Password Input -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required />
+                <span class="error-message" id="passwordError"></span>
+            </div>
+
+            <!-- Confirm Password Input -->
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password"
+                    required />
+                <span class="error-message" id="confirmPasswordError"></span>
+            </div>
+
+            <!-- Agree Terms and Conditions -->
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="terms" name="terms" required />
+                    I agree to the <a href="/terms-and-conditions.html" target="_blank">Terms and Conditions</a>
+                </label>
+                <span class="error-message" id="termsError"></span>
+            </div>
+
+            <!-- Register Button -->
+            <div class="form-group">
+                <button type="submit" class="register-btn">Sign Up</button>
+            </div>
+
+            <!-- Back to Login Link -->
+            <p class="backToLogin">Already have an account? <a href="/voter/login.html">Login</a></p>
+        </form>
+    </main>
+
+    <footer>
+        Matdaan © 2025 | All Rights Reserved by Govt. of India
+    </footer>
+
+    <script src="/js/voter/register.js"></script>
+</body>
+
+</html>

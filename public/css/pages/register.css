@@ -1,0 +1,204 @@
+/* 
+   Base Reset 
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+}
+
+/* 
+   Background 
+*/
+.register-wrapper {
+  min-height: calc(100vh - 120px); /* Deduct header + footer height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 1rem;
+  background-image: url("/public/images/IndianFlag.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.register-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+/* 
+   Header 
+*/
+header {
+  width: 100%;
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: .5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  border-bottom: 4px solid #ff7300;
+  z-index: 10;
+  position: relative;
+}
+
+/* 
+   Registration Title 
+*/
+.register-wrapper h2 {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* 
+   Registration Form Container 
+*/
+.register-form {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  padding: 2.5rem;
+  backdrop-filter: blur(4px);
+}
+
+/* 
+   Form Groups 
+*/
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+/* Gender Options */
+.gender-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.gender-options label {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* Date of Birth Container */
+.dob-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.dob-container select {
+  flex: 1;
+}
+
+/* Error Messages */
+.error-message {
+  font-size: 0.85rem;
+  color: red;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* Checkbox for Terms */
+.form-group input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+/* Register Button */
+.register-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: 1rem;
+}
+
+.register-btn:hover {
+  background: linear-gradient(45deg, #0056b3, #003f7f);
+  transform: translateY(-2px);
+}
+
+/* Back to Login Link */
+.backToLogin {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.backToLogin a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.backToLogin a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #2c3e50;
+  color: #fff;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  border-top: 4px solid #ff7300;
+  position: relative;
+  z-index: 10;
+}
