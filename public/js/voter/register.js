@@ -95,3 +95,64 @@ function validateDistrict(){
         return false;
     }
 }
+
+// 5h Gender
+function validateGender(){
+    const selectedGender=getSelectedGender();
+    if(!selectedGender){
+        genderError.textContent="Gender is required";
+        return false;
+    }else{
+        genderError.textContent="";
+        return true;
+    }
+}
+
+// dob dropdown validation
+function validateDob(){
+    const year=dobYear.value.trim();
+    const month=dobMonth.value.trim();
+    const day=dobDay.value.trim();
+
+    if(!year || !month || !day){
+        dobError.textContent="Date of Birth is required";
+        return false;
+    }else{
+        dobError.textContent="";
+        return true;
+    }
+}
+
+// password validation
+function validatePassword(){
+    const value=password.value.trim();
+
+    if(!value){
+        passwordError.textContent="Password is required";
+        return false;
+    }else if(!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value))){
+        passwordError.textContent="Password must be at least 8 characters long, contain at least one upprecase letter, one lowercase letter, and one number";
+        return false;
+    }else{
+        passwordError.textContent="";
+        return true;
+    }
+}
+
+// confirm password validation
+function confirmPasswordValidation(){
+    const value=confirmPassword.value.trim();
+
+    if(!value){
+        confirmPassowrdError.textContent="Confirm Password is required";
+        return false;
+    }else if(value !== password.value.trim()){
+        confirmPassowrdError.textContent="Passowrds do not match";
+        return false;
+    }else{
+        confirmPassowrdError.textContent="";
+        return  true;
+    }
+}
+
+
