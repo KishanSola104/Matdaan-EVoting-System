@@ -19,6 +19,9 @@
 
         <form action="#" method="post" class="register-form" autocomplete="off">
 
+            <div id="formMessage" class="message"></div>
+
+
             <!-- Voter ID Input Field -->
             <div class="form-group">
                 <label for="voterId">Voter ID</label>
@@ -123,14 +126,14 @@
             <div class="form-group">
                 <label>
                     <input type="checkbox" id="terms" name="terms" required />
-                    I agree to the <a href="/terms-and-conditions.html" target="_blank">Terms and Conditions</a>
+                    I agree to the <a href="/voter/terms.html" target="_blank">Terms and Conditions</a>
                 </label>
                 <span class="error-message" id="termsError"></span>
             </div>
 
             <!-- Register Button -->
             <div class="form-group">
-                <button type="submit" class="register-btn">Sign Up</button>
+                <button type="submit" class="register-btn" id="registerBtn">Sign Up</button>
             </div>
 
             <!-- Back to Login Link -->
