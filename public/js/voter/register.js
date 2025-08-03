@@ -240,11 +240,11 @@ registerBtn.addEventListener("click", function (event) {
 
   if (isValid) {
     formMessage.textContent =
-      "Registration successful! Redirecting to login...";
+      "Registration successful! Redirecting for Verification...";
     formMessage.classList.add("success");
 
     setTimeout(() => {
-      window.location.href = "/voter/login.html";
+      window.location.href = "/voter/otp_verification.html";
     }, 2000);
   } else {
     formMessage.textContent =

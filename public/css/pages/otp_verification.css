@@ -1,0 +1,135 @@
+/* ===== Global Styles ===== */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+header {
+  width: 100%;
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  border-bottom: 4px solid #ff7300;
+  z-index: 10;
+  position: relative;
+}
+
+main {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 1;
+}
+
+h2 {
+  margin-bottom: 8px;
+  font-size: 22px;
+  color: #0a3d62;
+}
+
+p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* ===== OTP Input Fields ===== */
+.otp-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.otp-input {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.otp-input:focus {
+  border: 1px solid #0a3d62;
+}
+
+/* ===== Timer & Error ===== */
+.timer {
+  font-size: 14px;
+  color: #555;
+  margin: 10px 0;
+}
+
+.error-message {
+  color: red;
+  font-size: 13px;
+  min-height: 16px;
+  margin-bottom: 10px;
+}
+
+/* ===== Buttons ===== */
+.resend-btn {
+  background: none;
+  border: none;
+  color: #0a3d62;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+
+.verify-btn {
+  display: inline-block;
+  background: #0a3d62;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+
+
+.verify-btn:hover {
+   border-color: #ff7300;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #2c3e50;
+  color: #fff;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  border-top: 4px solid #ff7300;
+  position: relative;
+  z-index: 10;
+}
