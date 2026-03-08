@@ -1,4 +1,4 @@
-# Matdaan – Secure E-Voting System
+# Secure E-Voting System
 
 Matdaan is a web-based electronic voting system developed using ASP.NET, C#, Microsoft SQL Server, HTML, CSS, and JavaScript. The platform provides a secure and organized solution for conducting online elections with dedicated panels for administrators and voters.
 
